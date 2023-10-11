@@ -3,17 +3,28 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { MainComponent } from './main/main.component';
-import { HomeComponent } from './home/home.component';
+
+import { HomeAdminComponent } from './main-admin/home-admin/home-admin.component';
+import { HomeComponent } from './main/home/home.component';
+import { MainAdminComponent } from './main-admin/main-admin.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     MainComponent,
-    HomeComponent
+    HomeComponent,
+    MainAdminComponent,
+    HomeAdminComponent
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    HttpClientModule
+  ],
+  providers: [
+
+    /* {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} */
   ]
 })
 export class PagesModule { }
