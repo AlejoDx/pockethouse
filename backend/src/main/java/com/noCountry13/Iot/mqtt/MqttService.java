@@ -15,11 +15,7 @@ public class MqttService {
     private IMqttClient mqttClient;
 
     public void subscribe(final String topic) throws MqttException, InterruptedException {
-
-        System.out.println("Messages received:");
-          mqttClient.subscribeWithResponse(topic, (tpic, msg) -> {
-          System.out.println(tpic + " -> " + new String(msg.getPayload()));
-        });
+            mqttClient.subscribe("#",0);
     }
 
     public boolean publish(final String topic, final String payload, int qos, boolean retained)
