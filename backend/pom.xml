@@ -59,11 +59,6 @@
 			<version>0.7.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.softwaremill.akka-http-session</groupId>
-			<artifactId>jwt_2.12</artifactId>
-			<version>0.7.0</version>
-		</dependency>
-		<dependency>
 			<groupId>com.zdawn</groupId>
 			<artifactId>jwt-token</artifactId>
 			<version>1.2.3</version>
@@ -108,10 +103,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.paho</groupId>
-			<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-			<version>1.2.0</version>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
