@@ -1,13 +1,10 @@
 package com.noCountry13.Iot.mqtt;
 
 import org.eclipse.paho.client.mqttv3.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Arrays;
 
 @Configuration
 public class MqttConfig {
@@ -27,9 +24,10 @@ public class MqttConfig {
             @Override
             public void connectComplete(boolean b, String s) {
                 try {
+                    // TODO: Define main topic to nc_iot
                     mqttClient.subscribe("#",0);
                 } catch (MqttException e) {
-                    throw new RuntimeException(e);
+                    System.out.println("Error subscribing to mqtt broker:" + e.getMessage());;
                 }
             }
 
@@ -40,7 +38,17 @@ public class MqttConfig {
 
             @Override
             public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
-                System.out.printf("[%s] %s%n", s, new String(mqttMessage.getPayload()));
+                // Uncomment to show input messages
+                // System.out.printf("[%s] %s%n", s, new String(mqttMessage.getPayload()));
+
+                /* TODO:
+                   Persist messages that has other topic than:
+                   NOSTORE/
+                   CONFIG/
+                   CONFIGREAD/
+                   ACTION/
+                */
+                // Local approximation: iotRepository.save(new Iot(null, new String(mqttMessage.getPayload(), StandardCharsets.UTF_8)));
             }
 
             @Override
