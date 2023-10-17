@@ -37,4 +37,10 @@ public class Environment {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "device_id")
     private List<Device> devices;
+
+    public Environment(String name, String description, String subTopic) {
+        this.name = name;
+        this.description = description;
+        this.subTopic = subTopic;
+    }
 }
