@@ -29,7 +29,6 @@ public class DevTypeServiceImplement implements DevTypeService {
     @Transactional
     public DevType updateType(Long id, DevTypeDto devTypeDto) {
         DevType type = devTypeRepository.findById(id).orElseThrow(() -> new IllegalStateException("Tipo de dispositivo no encontrado con el ID: " + id));
-        ;
 
         type.setName(devTypeDto.getName());
         type.setDescription(devTypeDto.getDescription());
@@ -53,7 +52,7 @@ public class DevTypeServiceImplement implements DevTypeService {
 
     @Override
     public DevType findTypeById(Long id) {
-        DevType type = devTypeRepository.findById(id).orElseThrow(() -> new IllegalStateException("No se encontró el dispositivo con ID " + id));
+        DevType type = devTypeRepository.findById(id).orElseThrow(() -> new IllegalStateException("No se encontró el tipo de dispositivo con ID " + id));
         return type;
     }
 }
