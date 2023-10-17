@@ -1,34 +1,41 @@
-<div class="w-full h-screen bg-slate-300">
-  <div class="flex justify-center items-center h-full">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" [formGroup]="loginForm" (ngSubmit)="login()">
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-          Username
-        </label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="username" type="text" placeholder="Username" formControlName="nameUser">
+<div class="w-full h-screen bg-white">
+  <div class="flex justify-center items-center h-full ">
+    <form class="flex flex-col justify-center items-center bg-[#D9D9D9] shadow-md md:rounded-[60px] px-8 pt-6 pb-8 mb-4 w-full  md:w-[548px] h-[539px]" [formGroup]="loginForm" (ngSubmit)="login()">
+        <h2 class="mb-4 text-base font-['Poppins']">Inicia sesión</h2>
+      <div class="text-center mb-10">
+        <h2 class="font-['Inter'] text-2xl">Te damos la bienvenida</h2>
+        <h2 class="font-['Inter'] text-2xl">POCKET HOUSE</h2>
       </div>
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-          Password
-        </label>
+      <div class="mb-4 ">
+       <!--  <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          Username
+        </label> -->
         <input
-          class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-          id="password" type="password" placeholder="******************" formControlName="password">
+          class="shadow  bg-[#D9D9D9] appearance-none border border-black rounded-[30px] w-[300px] md:w-[400px] h-[48px] py-2 px-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="username" type="text" placeholder="Escribe tu usuario" formControlName="nameUser">
+      </div>
+      <div class="mb-1">
+     <!--    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+          Password
+        </label> -->
+        <input
+          class="shadow  bg-[#D9D9D9] appearance-none border border-black rounded-[30px]  w-[300px] md:w-[400px]  h-[48px] py-2 px-5 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          id="password" type="password" placeholder="Escribe tu contraseña" formControlName="password">
 
       </div>
-      <div class="flex items-center justify-between">
+      <a class="float-right  text-sm text-black hover:text-blue-800 mb-5" href="#">
+      ¿olvidaste tu contraseña?
+      </a>
+
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          class="bg-black  text-white font-bold py-2 px-4 rounded-[30px] focus:outline-none focus:shadow-outline w-[300px] md:w-[400px] h-[48px]"
           type="submit">
-          Sign In
+          Ingresar
         </button>
-        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-          Forgot Password?
-        </a>
-      </div>
+
     </form>
+
+
 
   </div>
   <p class="text-center text-gray-500 text-xs">

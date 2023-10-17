@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.fb.group(
       {
-        nameUser: ['PabloUser', [Validators.required]],
-        password: ['pablo123456', [Validators.required]]
+        nameUser: ['', [Validators.required]],
+        password: ['', [Validators.required]]
       }
     )
 
@@ -31,10 +31,11 @@ export class LoginComponent implements OnInit {
   login() {
 
 
-    this.authService.login(this.loginForm.value).subscribe((resp: any) => {
+    this.authService.login(this.loginForm.value).subscribe((resp: AuthResponse) => {
 
       if (resp) {
         const authority = resp.authorities[0].authority;
+
 
         if (authority === "ROLE_ADMIN") {
           this.router.navigateByUrl("/main/admin");

@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
 
-    /* {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} */
+    /*  */
   ]
 })
 export class PagesModule { }

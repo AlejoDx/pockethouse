@@ -5,20 +5,25 @@ import { HomeComponent } from './main/home/home.component';
 
 import { HomeAdminComponent } from './main-admin/home-admin/home-admin.component';
 import { MainAdminComponent } from './main-admin/main-admin.component';
+import { AdminRoleGuard } from '../guards/admin-role.guard';
+import { USerRoleGuard } from '../guards/user-role.guard';
 
 
 const routes: Routes = [
   {
     path:'',component:MainComponent,
+    canActivate:[USerRoleGuard],
     children:[
       {path:'',component:HomeComponent},
     ]
   },
   {
-    path:'admin',component:MainAdminComponent
-  ,
+    path:'admin',component:MainAdminComponent,
+    canActivate:[AdminRoleGuard],
+
     children:[
-      {path:'',component:HomeAdminComponent},
+      {path:'',component:HomeAdminComponent,
+      },
     ]
   }
 ];
