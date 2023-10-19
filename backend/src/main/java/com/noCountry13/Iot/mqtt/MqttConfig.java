@@ -1,5 +1,8 @@
 package com.noCountry13.Iot.mqtt;
 
+import com.noCountry13.Iot.Model.Entity.Iot;
+import com.noCountry13.Iot.Service.Implements.IoTServiceImpl;
+import lombok.AllArgsConstructor;
 import org.eclipse.paho.client.mqttv3.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -7,10 +10,15 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 
 @Configuration
+@AllArgsConstructor
 public class MqttConfig {
+
+    @Autowired
+    private IoTServiceImpl ioTService;
 
     @Bean
     @ConfigurationProperties(prefix = "mqtt")
@@ -27,7 +35,7 @@ public class MqttConfig {
             @Override
             public void connectComplete(boolean b, String s) {
                 try {
-                    mqttClient.subscribe("#",0);
+                    mqttClient.subscribe("NC/#",0);
                 } catch (MqttException e) {
                     throw new RuntimeException(e);
                 }
@@ -40,7 +48,16 @@ public class MqttConfig {
 
             @Override
             public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
-                System.out.printf("[%s] %s%n", s, new String(mqttMessage.getPayload()));
+
+                System.out.println("MQTT Topic: " + s + "Payload: " + new String(mqttMessage.getPayload()));
+
+                if (!s.startsWith("NC/DATA/")) return;
+
+                Iot iot = new Iot();
+                iot.setDate(LocalDateTime.now());
+                iot.setTopic(s);
+                iot.setPayload(new String(mqttMessage.getPayload()));
+                ioTService.save(iot);
             }
 
             @Override
