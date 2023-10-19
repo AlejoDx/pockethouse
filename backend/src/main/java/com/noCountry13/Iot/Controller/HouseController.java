@@ -1,18 +1,15 @@
 package com.noCountry13.Iot.Controller;
 import com.noCountry13.Iot.Service.Implements.HouseServiceImpl;
-import com.noCountry13.Iot.exceptions.MessageResponse;
-import com.noCountry13.Iot.security.util.Mensaje;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.noCountry13.Iot.Model.Entity.House;
-import com.noCountry13.Iot.Model.Entity.Dto.House.HouseDto;
+import com.noCountry13.Iot.Model.Entity.Dto.HouseDto;
 
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/house")

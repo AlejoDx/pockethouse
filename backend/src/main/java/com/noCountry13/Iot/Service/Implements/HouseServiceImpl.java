@@ -1,6 +1,6 @@
 package com.noCountry13.Iot.Service.Implements;
 
-import com.noCountry13.Iot.Model.Entity.Dto.House.HouseDto;
+import com.noCountry13.Iot.Model.Entity.Dto.HouseDto;
 import com.noCountry13.Iot.Model.Entity.House;
 import com.noCountry13.Iot.Repository.HouseRepository;
 import com.noCountry13.Iot.Service.IHouseService;
