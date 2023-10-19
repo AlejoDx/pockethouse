@@ -1,25 +1,25 @@
 package com.noCountry13.Iot.Model.Entity.Dto.House;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
-@Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class HouseDto {
-    @NotBlank()
     private Long id;
-    @NotBlank()
+    @NotBlank(message = "client not by empty")
     private String client;
-    @NotBlank()
+    @NotBlank(message = "descriptions not by empty")
     private String description;
-    @NotBlank()
+    @NotBlank(message = "environments  not by empty")
     private String environments;
-    @NotBlank()
+    @NotBlank(message = "subtopic not by empty")
     private String subtopic;
+
 }

@@ -1,10 +1,16 @@
 package com.noCountry13.Iot.Controller;
-import org.aspectj.apache.bcel.Repository;
+import com.noCountry13.Iot.Service.Implements.HouseServiceImpl;
+import com.noCountry13.Iot.exceptions.MessageResponse;
+import com.noCountry13.Iot.security.util.Mensaje;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.noCountry13.Iot.Model.Entity.House;
 import com.noCountry13.Iot.Model.Entity.Dto.House.HouseDto;
-import com.noCountry13.Iot.Repository.HouseRepository;
+
+
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,70 +18,52 @@ import java.util.Optional;
 @RequestMapping("/api/v1/house")
 public class HouseController {
     @Autowired
-    private HouseRepository HouseRepository;
+    private HouseServiceImpl  houseService;
 
     // Creando una nueva casa
-    @PostMapping
-    public House newHouse(@RequestBody HouseDto newHouse) {
-        try{
+    @PostMapping("/create")
+    public ResponseEntity<HouseDto> newHouse(@Valid @RequestBody HouseDto newHouse) {
+        HouseDto houseDto = houseService.create(newHouse);
+        return new ResponseEntity<>(houseDto, HttpStatus.CREATED);
 
-            if (newHouse.getDescription() == null || newHouse.getDescription().isEmpty()) {
-                return new House();
-            }
-            if (newHouse.getClient() == null) {
-                return new House();
-            }
-            if (newHouse.getEnvironments() == null || newHouse.getEnvironments().isEmpty()) {
-                return new House();
-            }
-            if (newHouse.getSubtopic() == null || newHouse.getSubtopic().isEmpty()) {
-                return new House();
-            }
-
-            return new House();
-        }catch (Exception e) {
-            return new House();
-        }
     }
 
     // Devolviendo
-    @GetMapping("/{id}")
-    public List<House> getAllHouses() {
-        return HouseRepository.findAll();
+    @GetMapping("/getAll")
+    public ResponseEntity<List<HouseDto>> getAllHouses() {
+        return new ResponseEntity(houseService.allHouse(),HttpStatus.ACCEPTED) ;
     }
 
-    // Retorno
+
     @GetMapping("/{id}")
     public House getHouseById(@PathVariable Long id) {
-        Optional<House> house = HouseRepository.findById(id);
-        if (house.isPresent()) {
-            return house.get();
-        } else {
-
-            throw new ResourceNotFoundException("House con ID " + id + " no se ha encontrado en la base de datos.");
-
-        }
+//       // Optional<House> house = HouseRepository.findById(id);
+//        if (house.isPresent()) {
+//            return house.get();
+//        } else {
+//
+//            throw new RuntimeException("House con ID " + id + " no se ha encontrado en la base de datos.");
+//
+//        }
+        return  null ;
     }
 
     // Actualizando por ID
-    @PutMapping("/{id}")
-    public House updateHouse(@PathVariable Long id, @RequestBody House updatedHouse) {
-        Optional<House> existingHouse = HouseRepository.findById(id);
-        if (existingHouse.isPresent()) {
-            House house = existingHouse.get();
-            house.setClient(updatedHouse.getClient());
-            house.setDescription(updatedHouse.getDescription());
-            house.setEnvironments(updatedHouse.getEnvironments());
-            house.setSubtopic(updatedHouse.getSubtopic());
-            return HouseRepository.save(house);
-        } else {
-            throw new ResourceNotFoundException("House not found with id: " + id);
-        }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateHouse( @Valid @PathVariable Long id, @RequestBody HouseDto updatedHouse) {
+        HouseDto houseDto = houseService.update(updatedHouse,id);
+        return new ResponseEntity<>(houseDto,HttpStatus.ACCEPTED) ;
     }
 
+
+
+
     // Eliminando por ID
-    @DeleteMapping("/{id}")
-    public void deleteHouse(@PathVariable Long id) {
-        HouseRepository.deleteById(id);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteHouse(@PathVariable Long id) {
+
+        houseService.delete(id);
+        System.out.println(id+"----- ");
+        return new ResponseEntity<>( "eliminado", HttpStatus.ACCEPTED);
     }
 }

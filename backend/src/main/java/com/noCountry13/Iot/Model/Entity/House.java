@@ -1,14 +1,19 @@
 package com.noCountry13.Iot.Model.Entity;
+
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@Entity
 public class House {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,4 +22,5 @@ public class House {
     private String description;
     private String environments;
     private String subtopic;
+
 }
