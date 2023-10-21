@@ -2,10 +2,8 @@ package com.noCountry13.Iot.Model.Entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Data
@@ -20,7 +18,17 @@ public class House {
     private Long id;
     private String client;
     private String description;
-    private String environments;
+    @OneToMany(mappedBy = "house")
+    //@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    //@JoinColumn(name = "enviroment_id")
+    private List<Environment> environments;
     private String subtopic;
 
+    //public House(String client, String description, List<Environment> environments, String subtopic) {
+
+        //this.client = client;
+        //this.description = description;
+        //this.environments = environments;
+        //this.subtopic = subtopic;
+    }
 }
