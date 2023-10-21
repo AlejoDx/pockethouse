@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IotRepository extends JpaRepository<Iot, Long> {
+
+    public Iot findByTopic(String topic);
 }
