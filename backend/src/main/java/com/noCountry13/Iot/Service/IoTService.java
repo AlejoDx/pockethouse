@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 
 public interface IoTService {
@@ -23,4 +24,9 @@ public interface IoTService {
     public List<Iot> getByTopicByYear(IotDto iotDto, int year);
 
     public List<Iot> getByTopicByMonth(IotDto iotDto, int month, int year);
+
+
+    ////////////////////////  Ejemplo ////////////////////////////////////
+    // El metodo que se corresponde con el del repositorio
+    public List<Iot> findAllByTopicAndDateBetween(String topic, int year);
 }

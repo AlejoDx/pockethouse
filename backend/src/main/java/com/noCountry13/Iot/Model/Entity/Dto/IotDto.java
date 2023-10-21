@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -15,7 +16,7 @@ import java.util.Date;
 public class IotDto {
 
     @NotNull
-    private Date date;
+    private LocalDateTime date;
 
     @NotNull
     private String topic;
