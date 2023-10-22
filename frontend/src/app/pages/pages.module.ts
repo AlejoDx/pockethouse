@@ -8,6 +8,8 @@ import { HomeAdminComponent } from './main-admin/home-admin/home-admin.component
 import { HomeComponent } from './main/home/home.component';
 import { MainAdminComponent } from './main-admin/main-admin.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../shared/shared.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
+    FontAwesomeModule
   ],
   providers: [
 

@@ -7,6 +7,8 @@ export const AdminRoleGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
 
   if (authService.user.authorities==="ROLE_ADMIN") {
+
+
     return true;
   }
   router.navigateByUrl('/main');

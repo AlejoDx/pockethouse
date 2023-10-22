@@ -3,17 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { SharedRoutingModule } from './shared-routing.module';
 import { HeaderComponent } from './components/header/header.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    FontAwesomeModule
   ],exports:[
-    HeaderComponent
+    HeaderComponent,
+    NavbarComponent
   ]
 })
 export class SharedModule { }
