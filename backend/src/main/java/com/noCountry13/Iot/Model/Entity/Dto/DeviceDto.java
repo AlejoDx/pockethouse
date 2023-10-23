@@ -1,6 +1,6 @@
 package com.noCountry13.Iot.Model.Entity.Dto;
 
-import com.noCountry13.Iot.Enums.DevType;
+import com.noCountry13.Iot.Model.Entity.DevType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

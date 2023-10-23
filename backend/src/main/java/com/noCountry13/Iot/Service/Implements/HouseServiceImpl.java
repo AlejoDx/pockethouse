@@ -19,43 +19,21 @@ public class HouseServiceImpl implements IHouseService {
     @Autowired
     HouseRepository houseRepository;
     @Override
-    public HouseDto create(HouseDto houseDto) {
+    public House create(HouseDto houseDto) {
         House house = new House();
-        house.setClient(houseDto.getClient());
+        house.setAddress(houseDto.getAddress());
         house.setDescription(houseDto.getDescription());
-        //house.setEnvironments(houseDto.getEnvironments());
         house.setSubtopic(houseDto.getSubtopic());
-        List<Environment> environments = new ArrayList<>();
-        for (EnvironmentDto environmentDto : houseDto.getEnvironments()) {
-            Environment environment = new Environment();
-            environment.getName(environmentDto.getName());
-            environment.getName(house); // Relacion house con Enviroments
-            environments.add(environment);
-        }
-
-        house.setEnvironments(environments);
-        houseRepository.save(house);
-        return houseDto ;
+        return houseRepository.save(house);
     }
     @Override
     public HouseDto update(HouseDto updateHouse, Long id) {
         Optional<House> existingHouse = houseRepository.findById(id);
         if (existingHouse.isPresent()) {
             House house = existingHouse.get();
-            house.setClient(updateHouse.getClient());
+            house.setAddress(updateHouse.getAddress());
             house.setDescription(updateHouse.getDescription());
-            //house.setEnvironments(updateHouse.getEnvironments());
             house.setSubtopic(updateHouse.getSubtopic());
-
-            List<Environment> updatedEnvironments = new ArrayList<>();
-            for (EnvironmentDto environmentDto : updateHouse.getEnvironments()) {
-                Environment environment = new Environment();
-                environment.getName(environmentDto.getName());
-                environment.getName(house); // Relacion house con Enviroments
-                updatedEnvironments.add(environment);
-            }
-
-            house.setEnvironments(updatedEnvironments);
             houseRepository.save(house);
         }else{
             throw new RuntimeException("House not found with id: " + id);
@@ -63,25 +41,21 @@ public class HouseServiceImpl implements IHouseService {
         return updateHouse;
     }
 
-
-
-
     @Override
     public void delete(Long id) {
-        House house = houseRepository.findById(id).orElseThrow();
-        System.out.println(house + "-----");
+        House house = houseRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Casa no encontrada con el ID: " + id));;
         houseRepository.deleteById(id);
     }
 
-
-
-
-
-
     @Override
     public List<House> allHouse() {
-        return houseRepository.findAll()
-                .stream()
-                .collect(Collectors.toList());
+        return new ArrayList<>(houseRepository.findAll());
+    }
+
+    @Override
+    public House findById(Long id) {
+        return houseRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("No se encontró la casa con ID " + id));
     }
 }

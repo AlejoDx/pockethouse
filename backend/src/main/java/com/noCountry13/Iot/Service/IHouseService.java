@@ -6,8 +6,10 @@ import com.noCountry13.Iot.Model.Entity.House;
 import java.util.List;
 
 public interface IHouseService {
-    HouseDto create(HouseDto houseDto);
+    House create(HouseDto houseDto);
     HouseDto update(HouseDto houseDto, Long id);
     void  delete(Long id);
     List<House> allHouse();
+
+    House findById(Long id);
 }
