@@ -1,4 +1,4 @@
-package com.noCountry13.Iot.Controller;
+package com.noCountry13.Iot.controller;
 import com.noCountry13.Iot.Model.Entity.Environment;
 import com.noCountry13.Iot.Service.Implements.HouseServiceImpl;
 import com.noCountry13.Iot.security.util.Mensaje;
@@ -32,10 +32,9 @@ public class HouseController {
         return new ResponseEntity(houseService.allHouse(),HttpStatus.OK) ;
     }
 
-
     @GetMapping("/{id}")
-    public House getHouseById(@PathVariable Long id) {
-        return houseService.findById(id);
+    public ResponseEntity<?> getHouseById(@PathVariable Long id) {
+        return new ResponseEntity<>(houseService.findById(id),HttpStatus.OK);
     }
 
     // Actualizando por ID
