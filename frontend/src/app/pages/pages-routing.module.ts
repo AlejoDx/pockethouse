@@ -7,6 +7,7 @@ import { HomeAdminComponent } from './main-admin/home-admin/home-admin.component
 import { MainAdminComponent } from './main-admin/main-admin.component';
 import { AdminRoleGuard } from '../guards/admin-role.guard';
 import { USerRoleGuard } from '../guards/user-role.guard';
+import { ProfileComponent } from './main-admin/profile/profile.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,9 @@ const routes: Routes = [
     children:[
       {path:'',component:HomeAdminComponent,
       },
+      {
+        path:'profile',component:ProfileComponent
+      }
     ]
   }
 ];

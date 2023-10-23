@@ -10,6 +10,7 @@ import { MainAdminComponent } from './main-admin/main-admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProfileComponent } from './main-admin/profile/profile.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MainComponent,
     HomeComponent,
     MainAdminComponent,
-    HomeAdminComponent
+    HomeAdminComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

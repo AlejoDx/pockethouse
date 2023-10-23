@@ -5,6 +5,7 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     CommonModule,
     SharedRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterModule
   ],exports:[
     HeaderComponent,
     NavbarComponent
