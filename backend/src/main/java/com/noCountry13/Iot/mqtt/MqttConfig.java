@@ -34,11 +34,11 @@ public class MqttConfig {
         mqttClient.setCallback(new MqttCallbackExtended() {
             @Override
             public void connectComplete(boolean b, String s) {
-//                try {
-//                    mqttClient.subscribe("NC/#",0);
-//                } catch (MqttException e) {
-//                    throw new RuntimeException(e);
-//                }
+                try {
+                    mqttClient.subscribe("NC/#",0);
+                } catch (MqttException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
             @Override
