@@ -9,6 +9,7 @@ import com.noCountry13.Iot.mqtt.MqttService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.Tag;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.eclipse.paho.client.mqttv3.*;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -55,20 +57,28 @@ public class MqttMessageController {
     }
 
     @Operation(summary = "Se utiliza para enviar mensajes mqtt a los dispositivos y obtener una respuesta",
-               description = "<p>Los mensajes constan de una accion y un payload.</p>" +
-                       "<br><p><b>La accion define el tipo de interaccion que se desea con el dispositivo:</b></p>" +
-                       "<p><b>STATE :</b> Solicita al dispositivo que informe el estado en que se encuentra (no necesita payload)</p>" +
-                       "<p>y devuelve el estado en que se encuentra el dispositivo.</p>" +
-                       "<p><b>ACTION :</b> Solicita al dispositivo que realice la accion enviada en el payload (ej. 1 - encender, 0 - apagar</p>" +
-                       "<p>y devuelve el estado en que queda el dispositivo.</p>" +
-                       "<p><b>LIVE :</b> Solicita al dispositivo que envie una medicion (funciona solo con dispositivos Sensor)</p>" +
-                       "<p>y devuelve la medicion en tiempo real.</p>"
+               description = "<p>Los mensajes constan de una accion y un valor.</p>"
                        )
     @PostMapping("/client/mqtt")
-    public ResponseEntity<?> control(@RequestParam Long deviceId, String action, String value){
+    public ResponseEntity<?> control(@RequestParam @Parameter(name = "deviceId", description = "Id del dispositivo a consultar") Long deviceId,
+                                     @RequestParam @Parameter(name = "action", description = "<p><b>STATE :</b> Solicita al dispositivo que informe el estado en que se encuentra (no necesita payload)</p>" +
+                                             "<p>y devuelve el estado en que se encuentra el dispositivo.</p>" +
+                                             "<p><b>ACTION :</b> Solicita al dispositivo que realice la accion enviada en el payload (ej. 1 - encender, 0 - apagar</p>" +
+                                             "<p>y devuelve el estado en que queda el dispositivo.</p>" +
+                                             "<p><b>LIVE :</b> Solicita al dispositivo que envie una medicion (funciona solo con dispositivos Sensor)</p>" +
+                                             "<p>y devuelve la medicion en tiempo real.</p>") String action,
+                                     @RequestParam @Nullable @Parameter(name = "value", description = "Valor que se envia al dispositivo, varia segun cada uno") String value){
+
+        Device device = deviceService.findById(deviceId).orElseThrow(()-> new IllegalArgumentException("Device not found"));
+
+        if (device.getSubtopic()==null) {
+            return new ResponseEntity<>("Device topic must not be null", HttpStatus.BAD_REQUEST);
+        }
 
         String actionTopic;
         String responseTopic;
+
+
         switch (action){
             case "STATE":
                 actionTopic = "STATE";
@@ -86,7 +96,6 @@ public class MqttMessageController {
                 return new ResponseEntity<>(new MessageDto("Action must be one of [STATE, ACTION, LIVE]"), HttpStatus.BAD_REQUEST);
         }
         String host = "tcp://" + env.getProperty("mqtt.hostname") + ":" + env.getProperty("mqtt.port");
-        Device device = deviceService.findById(deviceId).get();
 
         try {
             MqttClientExt mqttClientExt = new MqttClientExt(
