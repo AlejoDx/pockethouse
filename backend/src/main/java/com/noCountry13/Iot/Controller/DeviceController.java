@@ -2,6 +2,8 @@ package com.noCountry13.Iot.controller;
 
 import com.noCountry13.Iot.Model.Entity.Device;
 import com.noCountry13.Iot.Model.Entity.Dto.DeviceDto;
+import com.noCountry13.Iot.Repository.DeviceRepository;
+import com.noCountry13.Iot.Repository.EnvironmentRepository;
 import com.noCountry13.Iot.Service.Implements.DeviceServiceImplement;
 import com.noCountry13.Iot.security.util.Mensaje;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,10 @@ public class DeviceController {
 
     @Autowired
     private DeviceServiceImplement deviceServiceImplement;
+    @Autowired
+    private DeviceRepository deviceRepository;
+    @Autowired
+    private EnvironmentRepository environmentRepository;
 
     /**
      * Crea un nuevo dispositivo.
@@ -116,6 +122,12 @@ public class DeviceController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/devices-not-in-any-enviroments")
+    public List<Device> getDevicesNotInAnyEnvironment() {
+        // Realiza una consulta personalizada para obtener dispositivos que no están en ningún entorno
+        List<Device> devicesNotInEnvironments = deviceRepository.findDevicesNotInAnyEnvironment();
+        return devicesNotInEnvironments;
+    }
 
 
     /**
@@ -139,6 +151,7 @@ public class DeviceController {
             return new ResponseEntity<>(new Mensaje("Error al obtener el dispositivo: " + e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 
 
 }
