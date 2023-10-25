@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { HomeComponent } from '../pages/main/home/home.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   },{
     path: 'homePage',
     component: HomePageComponent
+  },
+  {
+    path: 'HomeMain',
+    component: HomeComponent
   }
 ];
 
