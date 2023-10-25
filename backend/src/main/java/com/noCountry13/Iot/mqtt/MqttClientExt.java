@@ -1,4 +1,4 @@
-package com.noCountry13.Iot.config;
+package com.noCountry13.Iot.mqtt;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -12,23 +12,22 @@ import org.springframework.core.env.Environment;
 
 public class MqttClientExt extends MqttClient {
 
-    @Autowired
-    private Environment env;
     private String response;
 
-    public MqttClientExt(String serverURI, String clientId, String operationTopic, String responseTopic, String topic) throws MqttException {
+    public MqttClientExt(String serverURI, String clientId, String actionTopic, String responseTopic, String topic, String value) throws MqttException {
 
         super(serverURI, clientId);
+
         this.setCallback(new MqttCallbackExtended() {
             @Override
             public void connectComplete(boolean b, String s) {
                 try {
-                    subscribe("NC/" + responseTopic + topic);
+                    subscribe("NC/" + responseTopic + "/" + topic);
                 } catch (MqttException e) {
                     throw new RuntimeException(e);
                 }
                 try {
-                    publish("NC/" + operationTopic + topic, new MqttMessage());
+                    publish("NC/" + actionTopic + "/" + topic, new MqttMessage(value.getBytes()));
                 } catch (MqttException e) {
                     throw new RuntimeException(e);
                 }

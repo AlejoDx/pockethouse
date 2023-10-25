@@ -2,7 +2,6 @@ package com.noCountry13.Iot.mqtt;
 
 import com.noCountry13.Iot.Model.Entity.Iot;
 import com.noCountry13.Iot.Service.Implements.IoTServiceImpl;
-import com.noCountry13.Iot.config.MqttClientExt;
 import lombok.AllArgsConstructor;
 import org.eclipse.paho.client.mqttv3.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 
 @Configuration
 @AllArgsConstructor
