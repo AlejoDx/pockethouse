@@ -11,6 +11,7 @@ import { ProfileComponent } from './main-admin/profile/profile.component';
 import { TempComponent } from './main/temp/temp.component';
 
 
+// Rutas para los componentes del main
 const routes: Routes = [
   {
     path:'',component:MainComponent,
