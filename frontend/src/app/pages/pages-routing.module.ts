@@ -8,6 +8,8 @@ import { MainAdminComponent } from './main-admin/main-admin.component';
 import { AdminRoleGuard } from '../guards/admin-role.guard';
 import { USerRoleGuard } from '../guards/user-role.guard';
 import { ProfileComponent } from './main-admin/profile/profile.component';
+import { CasaDosComponent } from './main/casas/casa-dos/casa-dos.component';
+import { CasaUnoComponent } from './main/casas/casa-uno/casa-uno.component';
 
 
 const routes: Routes = [
@@ -15,7 +17,8 @@ const routes: Routes = [
     path:'',component:MainComponent,
     canActivate:[USerRoleGuard],
     children:[
-      {path:'',component:HomeComponent},
+      {path:'home',component:HomeComponent},
+      {path:'casa1',component:CasaUnoComponent}
     ]
   },
   {

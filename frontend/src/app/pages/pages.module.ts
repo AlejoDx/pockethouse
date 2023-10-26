@@ -11,12 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './main-admin/profile/profile.component';
-import { CasaUnoComponent } from './main/casa-uno/casa-uno.component';
-import { CasaDosComponent } from './main/casa-dos/casa-dos.component';
+import { CasaUnoComponent } from './main/casas/casa-uno/casa-uno.component';
+import { CasaDosComponent } from './main/casas/casa-dos/casa-dos.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
+
     MainComponent,
     HomeComponent,
     MainAdminComponent,
@@ -27,6 +29,7 @@ import { CasaDosComponent } from './main/casa-dos/casa-dos.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     PagesRoutingModule,
     HttpClientModule,
     SharedModule,
