@@ -55,6 +55,7 @@ h1{
         position: relative;
         top: 282px;
         right: 5px;
+        cursor: pointer;
     }
     .casa{
         display: flex;
@@ -126,6 +127,7 @@ h1{
         position: relative;
         top: 282px;
         right: 5px;
+        cursor: pointer;
     }
     .casa{
         display: flex;

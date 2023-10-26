@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
 
+//Rutas del Login
 const routes: Routes = [
   {
     path: '',

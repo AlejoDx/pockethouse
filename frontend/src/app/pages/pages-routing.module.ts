@@ -13,6 +13,7 @@ import { CasaUnoComponent } from './main/casas/casa-uno/casa-uno.component';
 import { TempComponent } from './main/temp/temp.component';
 
 
+// Rutas para los componentes del main
 const routes: Routes = [
   {
     path:'',component:MainComponent,
