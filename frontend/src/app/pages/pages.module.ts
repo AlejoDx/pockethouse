@@ -14,6 +14,7 @@ import { ProfileComponent } from './main-admin/profile/profile.component';
 import { CasaUnoComponent } from './main/casas/casa-uno/casa-uno.component';
 import { CasaDosComponent } from './main/casas/casa-dos/casa-dos.component';
 import { FormsModule } from '@angular/forms';
+import { TempComponent } from './main/temp/temp.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     HomeAdminComponent,
     ProfileComponent,
     CasaUnoComponent,
-    CasaDosComponent
+    CasaDosComponent,
+    TempComponent
   ],
   imports: [
     CommonModule,
