@@ -27,6 +27,13 @@ h1{
         font-style: normal;
         font-weight: 500;
     }
+    .boton1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 220px;
+    }
 }
 
 @media(min-width: 350px) {
@@ -51,6 +58,44 @@ h1{
     }
 
     .boton1{
-        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 220px;
     }
+    .perfil{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 335px;
+        left: 85px;
+        cursor: pointer;
+    }
+    .config{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 282px;
+        right: 5px;
+    }
+    .casa{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 385px;
+        right: 90px;
+        cursor: pointer;
+    }
+    .downBar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 450px;
+    }
+
 }

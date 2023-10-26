@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './main-admin/profile/profile.component';
+import { CasaUnoComponent } from './main/casa-uno/casa-uno.component';
+import { CasaDosComponent } from './main/casa-dos/casa-dos.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ProfileComponent } from './main-admin/profile/profile.component';
     HomeComponent,
     MainAdminComponent,
     HomeAdminComponent,
-    ProfileComponent
+    ProfileComponent,
+    CasaUnoComponent,
+    CasaDosComponent
   ],
   imports: [
     CommonModule,
