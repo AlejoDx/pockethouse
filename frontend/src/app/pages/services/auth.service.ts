@@ -15,7 +15,7 @@ export class AuthService  {
 
   public base_url = BASE_URL;
   public user!: User;
-  public loading!:boolean;
+  public loading!: boolean;
   private http = inject(HttpClient);
   private router = inject(Router);
   get token() {
@@ -28,14 +28,12 @@ export class AuthService  {
 
     const url = `${this.base_url}/auth/login`;
 
-
     return this.http.post<AuthResponse>(url, credenciales).pipe(
       tap((resp: any) => {
 
         const { token } = resp;
 
         localStorage.setItem('token', token);
-
       }
 
       ));

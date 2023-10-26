@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from 'src/app/pages/services/mqtt.service';
+import { MqttService } from 'src/app/pages/services/mqtt.service';
 
 
 
@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/pages/services/mqtt.service';
 export class CasaUnoComponent implements OnInit{
 
   ngOnInit() {
-    this.authService.action("1", "STATE", "0").subscribe((resp: any)=>{
+    this.mqttService.action("1", "STATE", "0").subscribe((resp: any)=>{
       console.log("Respuesta: " + resp.msg)
       if (resp.msg=="1")
         this.turnedOff= false;
@@ -25,17 +25,18 @@ export class CasaUnoComponent implements OnInit{
   activeTab: string = 'comedor';
   SwitchOnOff: boolean = true;
   backgroundColor: string = '#F8F8F8'; // Color de fondo predeterminado
-  private authService = inject(AuthService);
+  private mqttService = inject(MqttService);
   turnedOff: boolean = false;
+  tempP: boolean = false;
 
   toggleSwitch() {
     if (this.turnedOff){
-      this.authService.action("1", "ACTION", "1").subscribe((resp: any)=>{
+      this.mqttService.action("1", "ACTION", "1").subscribe((resp: any)=>{
         console.log("Respuesta: " + resp.msg)
         this.turnedOff = false;
       })
     } else {
-      this.authService.action("1", "ACTION", "0").subscribe((resp: any)=>{
+      this.mqttService.action("1", "ACTION", "0").subscribe((resp: any)=>{
         console.log("Respuesta: " + resp.msg)
         this.turnedOff = true;
       })
@@ -43,5 +44,9 @@ export class CasaUnoComponent implements OnInit{
   }
   setActiveTab(tab: string) {
     this.activeTab = tab;
+  }
+
+  tempPage(){
+    this.tempP = true;
   }
 }
