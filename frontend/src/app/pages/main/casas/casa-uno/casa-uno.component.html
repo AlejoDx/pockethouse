@@ -52,11 +52,11 @@
           <p class="font-[Gabarito] text-[15px] font-semibold text-black leading-none"> Luz </p>
         </div>
         <div class="relative inline-block w-[45px] h-[152.014px] rounded-full">
-          <input type="checkbox" [(ngModel)]="isSwitchOn" (click)="toggleSwitch()" class="opacity-0 absolute h-0 w-0"
+          <input [checked]="turnedOff" type="checkbox" [(ngModel)]="SwitchOnOff" (click)="toggleSwitch()" class="opacity-0 absolute h-0 w-0"
             id="toggleSwitch">
           <label for="toggleSwitch" class="toggle-label h-full block w-12 cursor-pointer rounded-full shadow-md pt-2"
-            [style.background]="isSwitchOn ? '#DEDDDD' : '#FFEB80'">
-            <div [ngClass]="isSwitchOn ? 'translate-y-24' : 'translate-y-0'"
+            [style.background]="turnedOff? '#DEDDDD' : '#FFEB80'">
+            <div [ngClass]="turnedOff? 'translate-y-24' : 'translate-y-0'"
               class="ml-2 toggle-dot h-8 w-8 bg-white rounded-full shadow-md transform transition-transform duration-300">
             </div>
           </label>

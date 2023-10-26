@@ -41,6 +41,28 @@ export class AuthService  {
       ));
 
   }
+
+  public action(deviceId: any, action: any, value: any) {
+
+    const url = `${this.base_url}/api/v1/client/mqtt?deviceId=${deviceId}&action=${action}&value=${value}`;
+
+    console.log("Paso por aca");
+
+    return this.http.post<any>(url, "").pipe(
+      tap((resp: any) => {
+        const { algo } = resp;
+        console.log(resp);
+      }
+
+      ));
+
+
+//    fetch(url, {method: 'POST'})
+//      .then((response) => {return response.json()})
+  }
+
+
+
   public validateToken():Observable<boolean>{
 
     const url = `${this.base_url}/auth/refresh-token`;
