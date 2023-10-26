@@ -11,16 +11,6 @@ h1{
         justify-content: center;
         top: 200px;
         position: relative;
-        flex-direction: column;
-    }
-    
-    .casas{
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 200px;
-        position: relative;
     }
 
     h1{
@@ -77,14 +67,6 @@ h1{
 
 @media(min-width: 350px) {
     .todo{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 200px;
-        position: relative;
-        flex-direction: column;
-    }
-    .casas{
         display: flex;
         align-items: center;
         justify-content: center;
