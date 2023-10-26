@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { BASE_URL } from 'src/environments/environment';
-import { tap } from 'rxjs';
+import { Observable, catchError, tap } from 'rxjs';
 import { User } from '../models/user.model';
 import { AuthService } from './auth.service';
 
@@ -16,7 +16,7 @@ export class MqttService  {
   private http = inject(HttpClient);
   private authService = inject(AuthService)
   
-  public action(deviceId: any, action: any, value: any) {
+  public action(deviceId: any, action: any, value: any):Observable<any> {
 
     this.authService.loading = true;
     const url = `${this.base_url}/api/v1/client/mqtt?deviceId=${deviceId}&action=${action}&value=${value}`;
@@ -27,6 +27,18 @@ export class MqttService  {
         console.log(resp);
         this.authService.loading = false;
       }
+      ),
+      catchError(this.handleError()
+
       ));
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      this.authService.loading = false;
+      console.error("JEB Error:" + error); // log to console instead
+      return new Observable;
+    };
   }
 }
