@@ -13,7 +13,7 @@ export class TempComponent implements OnInit{
 
   ngOnInit() {
     this.loading = true;
-    this.mqttService.action("6", "LIVE", "1").subscribe((resp: any)=>{
+    this.mqttService.action("9", "LIVE", "1").subscribe((resp: any)=>{
       console.log("Respuesta: " + resp.msg)
       this.tempNow = resp.msg;
       this.loading = false;

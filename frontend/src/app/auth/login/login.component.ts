@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
   private fb = inject(FormBuilder);
+  loading: boolean = false;
 
 
   ngOnInit(): void {
@@ -36,8 +37,10 @@ export class LoginComponent implements OnInit {
   }
   login() {
 
+    if (!this.loading){
+    this.loading = true;
+    console.log("Logeando")
     this.authService.login(this.loginForm.value).subscribe((resp: AuthResponse) => {
-
       if (resp) {
         const authority = resp.authorities[0].authority;
 
@@ -51,7 +54,7 @@ export class LoginComponent implements OnInit {
         }
       }
     })
-
+  }
   }
 
 }
