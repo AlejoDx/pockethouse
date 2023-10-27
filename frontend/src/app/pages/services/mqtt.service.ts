@@ -14,18 +14,18 @@ export class MqttService  {
   public base_url = BASE_URL;
   public user!: User;
   private http = inject(HttpClient);
-  private authService = inject(AuthService)
+  private loading: boolean = false;
   
   public action(deviceId: any, action: any, value: any) {
 
-    this.authService.loading = true;
+    // this.authService.loading = true;
     const url = `${this.base_url}/api/v1/client/mqtt?deviceId=${deviceId}&action=${action}&value=${value}`;
 
     return this.http.post<any>(url, "").pipe(
       tap((resp: any) => {
         const { algo } = resp;
         console.log(resp);
-        this.authService.loading = false;
+        // this.authService.loading = false;
       }
       ));
   }

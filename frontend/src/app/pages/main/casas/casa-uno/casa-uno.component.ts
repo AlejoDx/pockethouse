@@ -28,17 +28,21 @@ export class CasaUnoComponent implements OnInit{
   private mqttService = inject(MqttService);
   turnedOff: boolean = false;
   tempP: boolean = false;
+  loading: boolean = false;
 
   toggleSwitch() {
+    this.loading = true;
     if (this.turnedOff){
       this.mqttService.action("1", "ACTION", "1").subscribe((resp: any)=>{
         console.log("Respuesta: " + resp.msg)
         this.turnedOff = false;
+        this.loading = false;
       })
     } else {
       this.mqttService.action("1", "ACTION", "0").subscribe((resp: any)=>{
         console.log("Respuesta: " + resp.msg)
         this.turnedOff = true;
+        this.loading = false;
       })
     }
   }
