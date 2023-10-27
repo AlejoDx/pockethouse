@@ -75,7 +75,11 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        top: 30px;
+        top: 50px;
     }
+}
+
+.temperatura{
+    border-radius: 25px;
 }
 
