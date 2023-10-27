@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./temp.component.css']
 })
 export class TempComponent {
+  activeTab: string = 'comedor';
+
+  setActiveTab(tab: string) {
+    this.activeTab = tab;
+  }
 
 }
