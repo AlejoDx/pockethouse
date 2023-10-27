@@ -12,13 +12,16 @@ import { MqttService } from 'src/app/pages/services/mqtt.service';
 export class CasaUnoComponent implements OnInit{
 
   ngOnInit() {
+    this.loading = true;
     this.mqttService.action("1", "STATE", "0").subscribe((resp: any)=>{
       console.log("Respuesta: " + resp.msg)
       if (resp.msg=="1")
         this.turnedOff= false;
-      if (resp.msg=="0")
+        this.loading = false;
+        if (resp.msg=="0")
         this.turnedOff = true;
-    })
+        this.loading = false;
+      })
   }
 
   public faSun=faSun;

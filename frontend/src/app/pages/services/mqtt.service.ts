@@ -15,6 +15,7 @@ export class MqttService  {
   public user!: User;
   private http = inject(HttpClient);
   private loading: boolean = false;
+  authService = inject(AuthService);
   
   public action(deviceId: any, action: any, value: any):Observable<any> {
 
