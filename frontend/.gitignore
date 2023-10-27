@@ -28,6 +28,23 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
@@ -40,3 +57,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+/backend/src/main/resources/application-local.properties
