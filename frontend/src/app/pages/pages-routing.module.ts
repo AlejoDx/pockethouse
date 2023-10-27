@@ -24,7 +24,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'Temperatura',
+    path: 'temperatura',
     component: TempComponent
 
   },
