@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { faSun } from '@fortawesome/free-solid-svg-icons';
+
 import { MqttService } from 'src/app/pages/services/mqtt.service';
 
 
@@ -11,7 +11,21 @@ import { MqttService } from 'src/app/pages/services/mqtt.service';
 })
 export class CasaUnoComponent implements OnInit{
 
+
+
+
+
+  public SwitchOnOff: boolean = true;
+  public backgroundColor: string = '#F8F8F8'; // Color de fondo predeterminado
+
+  public turnedOff: boolean = false;
+  public tempP: boolean = false;
+  public loading: boolean = false;
+  private mqttService = inject(MqttService);
   ngOnInit() {
+    this.changeStateSwitch();
+  }
+  changeStateSwitch(){
     this.loading = true;
     this.mqttService.action("1", "STATE", "0").subscribe((resp: any)=>{
       console.log("Respuesta: " + resp.msg)
@@ -23,16 +37,6 @@ export class CasaUnoComponent implements OnInit{
         this.loading = false;
       })
   }
-
-  public faSun=faSun;
-  activeTab: string = 'comedor';
-  SwitchOnOff: boolean = true;
-  backgroundColor: string = '#F8F8F8'; // Color de fondo predeterminado
-  private mqttService = inject(MqttService);
-  turnedOff: boolean = false;
-  tempP: boolean = false;
-  loading: boolean = false;
-
   toggleSwitch() {
     this.loading = true;
     if (this.turnedOff){
@@ -49,9 +53,7 @@ export class CasaUnoComponent implements OnInit{
       })
     }
   }
-  setActiveTab(tab: string) {
-    this.activeTab = tab;
-  }
+
 
   tempPage(){
     this.tempP = true;

@@ -15,6 +15,9 @@ import { CasaUnoComponent } from './main/casas/casa-uno/casa-uno.component';
 import { CasaDosComponent } from './main/casas/casa-dos/casa-dos.component';
 import { FormsModule } from '@angular/forms';
 import { TempComponent } from './main/temp/temp.component';
+import { OptionsMenuHouseComponent } from './components/options-menu-house/options-menu-house.component';
+import { HeaderComponent } from './components/header/header.component';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { TempComponent } from './main/temp/temp.component';
     ProfileComponent,
     CasaUnoComponent,
     CasaDosComponent,
-    TempComponent
+    TempComponent,
+    OptionsMenuHouseComponent,
+    HeaderComponent,
+    TabsComponent
   ],
   imports: [
     CommonModule,

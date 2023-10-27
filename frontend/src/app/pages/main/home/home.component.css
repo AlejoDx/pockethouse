@@ -1,7 +1,11 @@
+/*
 h1{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.home-content{
+  height: 100%;
 }
 
 @media(max-width: 700px){
@@ -129,3 +133,4 @@ h1{
     }
 
 }
+ */
