@@ -21,16 +21,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group(
-       {
-         nameUser: ['PabloUser', [Validators.required]],
-         password: ['pablo123456', [Validators.required]]
-       },
+      //  {
+      //    nameUser: ['PabloUser', [Validators.required]],
+      //    password: ['pablo123456', [Validators.required]]
+      //  },
       //Perfil del cliente al cual accedes directamente al home para seleccionar
       //Cualquier casa y empezar a usar la app
-      // {
-      //   nameUser: ['juan', [Validators.required]],
-      //   password: ['123456', [Validators.required]]
-      // }
+      {
+        nameUser: ['juan', [Validators.required]],
+        password: ['123456', [Validators.required]]
+      }
     )
 
   }
