@@ -1,7 +1,21 @@
+@media screen and (max-height:648px) {
+  /* Tus estilos CSS para alturas menores que 574px van aquí */
+  /* Por ejemplo, puedes cambiar el color de fondo del cuerpo (body) */
+
+    .mt-text{
+      margin-top: 100px;
+    }
+
+}
+
+/*
 h1{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.home-content{
+  height: 100%;
 }
 
 @media(max-width: 700px){
@@ -129,3 +143,4 @@ h1{
     }
 
 }
+ */

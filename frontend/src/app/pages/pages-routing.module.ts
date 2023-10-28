@@ -20,14 +20,15 @@ const routes: Routes = [
     canActivate:[USerRoleGuard],
     children:[
       {path:'home',component:HomeComponent},
-      {path:'casa1',component:CasaUnoComponent}
+      {path:'casa1',component:CasaUnoComponent},
+      {
+        path: 'temperatura',
+        component: TempComponent
+
+      },
     ]
   },
-  {
-    path: 'temperatura',
-    component: TempComponent
 
-  },
   {
     path:'admin',component:MainAdminComponent,
     canActivate:[AdminRoleGuard],

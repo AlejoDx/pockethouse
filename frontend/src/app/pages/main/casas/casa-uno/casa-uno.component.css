@@ -1,7 +1,7 @@
 input[type="range"]::-webkit-slider-thumb {
   width: 20px;
   -webkit-appearance: none;
-appearance: none;
+  appearance: none;
   height: 20px;
   cursor: ew-resize;
   background: #FFF;
@@ -9,6 +9,16 @@ appearance: none;
   border-radius: 50%;
 
 }
+
 .hidden {
   display: none !important;
-  }
+}
+@media screen and (max-height: 573px) {
+  /* Tus estilos CSS para alturas menores que 574px van aquí */
+  /* Por ejemplo, puedes cambiar el color de fondo del cuerpo (body) */
+
+    .content-light{
+      height: 200px;
+    }
+
+}

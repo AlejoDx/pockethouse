@@ -9,7 +9,7 @@
           <!-- Numero de casa en la que te encontrás  -->
           <p class="font-[Gabarito] text-[25px] font-semibold text-black leading-none ml-[33px]">Casa 1</p>
         </div>
-        
+
 
         <!-- Estadisticas  -->
         <div class="float-right">
@@ -21,11 +21,11 @@
             <path d="M27 12H31.5V16.5" stroke="#4A5C43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-  
+
       </div>
-  
+
       <!-- tabs -->
-  
+
       <ul class="flex justify-center  mt-[55px]">
         <li class="cursor-pointer ">
           <a [class]="activeTab === 'comedor' ? 'bg-[#C0CFE6] text-black px-4 py-2 rounded-l-[25px]' : 'bg-[#D4E0EE] text-black px-4 py-2 rounded-l-[25px]'"
@@ -41,7 +41,7 @@
 
     <!-- Temperatura de la habitacion/comedor  -->
 
-    
+
     <div class="temperatura">
       <!-- <div class="grados">
         <p class="font-[Gabarito] text-[25px] font-semibold text-black leading-none ml-[33px]">23 grados</p>
@@ -73,13 +73,13 @@
       <h3 class="font-[Gabarito] text-[22px] justify-center flex items-center font-semibold text-[#494949] leading-none ml-[33px]">Temperatura de la habitación</h3>
     </div>
 </div>
-    
-    
+
+
      <!-- Dentro de este div se ve la barra que esta en el bottom para entrar a las otras pantallas -->
-    <div class="flex justify-center px-[20px] mb-[54px]">
-      <div class="h-[75px] max-w-[400px] w-full  bg-[#97AF8F] rounded-[25px] ">
+    <div class="px-[20px] mb-[54px]">
+      <div class="h-[75px] w-full  max-w-[500px] mx-auto  bg-[#97AF8F] rounded-[25px] ">
         <ul class="flex flex-row gap-3 justify-center pt-2  ">
-            
+
             <!-- Luz  -->
             <a routerLink="/main/casa1">
                 <li class="flex justify-center items-center bg-[#4A5C43] w-[56px] h-[56px] rounded-full">
@@ -88,9 +88,9 @@
                         <path d="M25 43H31M17.5 23.5C17.5 20.7152 18.6062 18.0445 20.5754 16.0754C22.5445 14.1062 25.2152 13 28 13C30.7848 13 33.4555 14.1062 35.4246 16.0754C37.3938 18.0445 38.5 20.7152 38.5 23.5C38.501 25.1906 38.0921 26.8563 37.3084 28.3542C36.5246 29.8522 35.3894 31.1378 34 32.101L33.187 35.95C33.0794 36.6595 32.721 37.3068 32.1769 37.7747C31.6328 38.2425 30.9391 38.4999 30.2215 38.5H25.7785C25.0609 38.4999 24.3672 38.2425 23.8231 37.7747C23.279 37.3068 22.9206 36.6595 22.813 35.95L22 32.1175C20.6101 31.1509 19.4749 29.8623 18.6912 28.3616C17.9076 26.861 17.4989 25.1929 17.5 23.5Z" stroke="#4A5C43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M22 32.5H34" stroke="#4A5C43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        
+
                 </li>
-            </a> 
+            </a>
 
 
           <!-- temperatura -->
@@ -101,7 +101,7 @@
             <path d="M20.125 43.75C18.5747 43.7517 17.0585 43.2954 15.7667 42.4383C14.4749 41.5812 13.4651 40.3616 12.8642 38.9325C12.2632 37.5034 12.0979 35.9287 12.3889 34.406C12.6799 32.8832 13.4144 31.4805 14.5 30.3738V17.875C14.5 16.3832 15.0926 14.9524 16.1475 13.8975C17.2024 12.8426 18.6332 12.25 20.125 12.25C21.6168 12.25 23.0476 12.8426 24.1025 13.8975C25.1574 14.9524 25.75 16.3832 25.75 17.875V30.3738C26.8356 31.4805 27.5701 32.8832 27.8611 34.406C28.1521 35.9287 27.9868 37.5034 27.3858 38.9325C26.7849 40.3616 25.7751 41.5812 24.4833 42.4383C23.1915 43.2954 21.6753 43.7517 20.125 43.75ZM20.125 14.5C19.2302 14.5009 18.3722 14.8568 17.7395 15.4895C17.1068 16.1222 16.7509 16.9802 16.75 17.875V31.3559L16.3765 31.6922C15.527 32.4515 14.9281 33.4509 14.6591 34.558C14.39 35.6652 14.4636 36.828 14.8699 37.8924C15.2763 38.9568 15.9963 39.8728 16.9347 40.519C17.8731 41.1652 18.9856 41.5112 20.125 41.5112C21.2644 41.5112 22.3769 41.1652 23.3153 40.519C24.2537 39.8728 24.9737 38.9568 25.3801 37.8924C25.7864 36.828 25.86 35.6652 25.5909 34.558C25.3219 33.4509 24.723 32.4515 23.8735 31.6922L23.5 31.3559V17.875C23.4991 16.9802 23.1432 16.1222 22.5105 15.4895C21.8778 14.8568 21.0198 14.5009 20.125 14.5Z" fill="#D4E0EE"/>
             </svg>
             </li>
-          
+
             <!-- Seguridad  -->
           <li class="flex justify-center items-center bg-[#D4E0EE] w-[56px] h-[56px] rounded-full"><svg
               xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
@@ -110,7 +110,7 @@
             </svg></li>
 
 
-          
+
           <li class="flex justify-center items-center bg-[#D4E0EE] w-[56px] h-[56px] rounded-full"><svg
               xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
               <g clip-path="url(#clip0_240_299)">
@@ -136,7 +136,7 @@
                 </clipPath>
               </defs>
             </svg></li>
-          
+
           <li class="flex justify-center items-center bg-[#D4E0EE] w-[56px] h-[56px] rounded-full"><svg
               xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
               <path
@@ -153,6 +153,6 @@
             </svg></li>
         </ul>
       </div>
-  
+
     </div>
   </div>

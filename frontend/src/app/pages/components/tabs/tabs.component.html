@@ -1,0 +1,14 @@
+<ul class="flex justify-center  mt-[55px]">
+  <li class="cursor-pointer ">
+    <a [class]="activeTab === 'comedor' ? 'bg-[#C0CFE6] text-black px-4 py-2 rounded-l-[25px]' : 'bg-[#D4E0EE] text-black px-4 py-2 rounded-l-[25px]'"
+      (click)="setActiveTab('comedor')">Comedor</a>
+  </li>
+  <li class="cursor-pointer ">
+    <a [class]="activeTab === 'patio' ? 'bg-[#C0CFE6] text-black px-6 py-2  ' : 'bg-[#D4E0EE] text-black px-6 py-2'"
+      (click)="setActiveTab('patio')">Patio</a>
+  </li>
+  <li class="cursor-pointer">
+    <a [class]="activeTab === 'habitacion' ? 'bg-[#C0CFE6] text-black px-4 py-2 rounded-r-[25px]' : 'bg-[#D4E0EE] text-black px-4 py-2 rounded-r-[25px]'"
+      (click)="setActiveTab('habitacion')">Habitación</a>
+  </li>
+</ul>
