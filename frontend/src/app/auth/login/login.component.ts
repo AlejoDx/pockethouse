@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
       //Perfil del cliente al cual accedes directamente al home para seleccionar
       //Cualquier casa y empezar a usar la app
       {
-        nameUser: ['juan', [Validators.required]],
-        password: ['123456', [Validators.required]]
+        nameUser: ['esteban', [Validators.required]],
+        password: ['Esteban_2023', [Validators.required]]
       }
     )
 
