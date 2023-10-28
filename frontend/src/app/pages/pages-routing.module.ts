@@ -10,7 +10,10 @@ import { USerRoleGuard } from '../guards/user-role.guard';
 import { ProfileComponent } from './main-admin/profile/profile.component';
 import { CasaDosComponent } from './main/casas/casa-dos/casa-dos.component';
 import { CasaUnoComponent } from './main/casas/casa-uno/casa-uno.component';
-import { TempComponent } from './main/temp/temp.component';
+
+import { SecurityComponent } from './main/casas/casa-uno/security/security.component';
+import { TempComponent } from './main/casas/casa-uno/temp/temp.component';
+
 
 
 // Rutas para los componentes del main
@@ -24,6 +27,11 @@ const routes: Routes = [
       {
         path: 'temperatura',
         component: TempComponent
+
+      },
+      {
+        path: 'seguridad',
+        component: SecurityComponent
 
       },
     ]

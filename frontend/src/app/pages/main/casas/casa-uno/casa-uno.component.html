@@ -1,4 +1,4 @@
-<div class="flex flex-col justify-between h-screen">
+<div class="flex flex-col justify-between h-screen pb-[10px]">
   <div>
     <app-headerM></app-headerM>
 
@@ -47,7 +47,9 @@
       <!--  Intensidad -->
 
       <div class="content-light flex  flex-col items-center justify-center bg-[#C7C6C666] w-[232px] h-[228px] rounded-[25px] gap-4 p-3">
-        <h2>Intensidad</h2>
+        <div class="flex flex-row items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ebcf94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai ai-Sun"><path d="M12 3V2m0 20v-1m9-9h1M2 12h1m15.5-6.5L20 4M4 20l1.5-1.5M4 4l1.5 1.5m13 13L20 20"/><circle cx="12" cy="12" r="4"/></svg>
+        <h2 class="font-[Intel] text-[20px] font-bold text-gray-500">Intensidad</h2></div>
         <input class="rounded-lg overflow-hidden appearance-none bg-gray-300 h-[20px] w-[212px]" type="range" min="1"
           max="100" step="1" value="15" />
       </div>
@@ -55,6 +57,6 @@
   </div>
 
   <div class="px-[20px] mb-[54px]">
-    <options-menu-house></options-menu-house>
+    <options-menu-house [activeOption]="'luz'"></options-menu-house>
   </div>
 </div>

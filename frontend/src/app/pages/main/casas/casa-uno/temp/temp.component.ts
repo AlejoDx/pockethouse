@@ -8,8 +8,11 @@ import { MqttService } from 'src/app/pages/services/mqtt.service';
   styleUrls: ['./temp.component.css']
 })
 export class TempComponent implements OnInit{
-  
+
   private mqttService = inject(MqttService);
+  activeTab: string = 'comedor';
+  tempNow: string = "22 grados";
+  loading: boolean = false;
 
   ngOnInit() {
     this.loading = true;
@@ -20,10 +23,7 @@ export class TempComponent implements OnInit{
     })
   }
 
-  
-  activeTab: string = 'comedor';
-  tempNow: string = "22 grados";
-  loading: boolean = false;
+
 
 
   setActiveTab(tab: string) {
