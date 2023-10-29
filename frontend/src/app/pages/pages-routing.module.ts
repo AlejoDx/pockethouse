@@ -13,6 +13,8 @@ import { CasaUnoComponent } from './main/casas/casa-uno/casa-uno.component';
 
 import { SecurityComponent } from './main/casas/casa-uno/security/security.component';
 import { TempComponent } from './main/casas/casa-uno/temp/temp.component';
+import { IrrigationComponent } from './main/casas/casa-uno/irrigation/irrigation.component';
+import { AlarmComponent } from './main/casas/casa-uno/alarm/alarm.component';
 
 
 
@@ -30,10 +32,18 @@ const routes: Routes = [
 
       },
       {
-        path: 'seguridad',
-        component: SecurityComponent
+        path: 'security',
+        loadChildren : () => import('./main/casas/casa-uno/security/security.module').then(m=> m.SecurityModule)
 
       },
+      {
+        path:'riego',
+        component:IrrigationComponent
+      },
+      {
+        path:'alarma',
+        component:AlarmComponent
+      }
     ]
   },
 

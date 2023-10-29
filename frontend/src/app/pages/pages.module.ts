@@ -21,6 +21,9 @@ import { TabsComponent } from './components/tabs/tabs.component';
 
 import { SecurityComponent } from './main/casas/casa-uno/security/security.component';
 import { TempComponent } from './main/casas/casa-uno/temp/temp.component';
+import { SecurityModule } from './main/casas/casa-uno/security/security.module';
+import { IrrigationComponent } from './main/casas/casa-uno/irrigation/irrigation.component';
+import { AlarmComponent } from './main/casas/casa-uno/alarm/alarm.component';
 
 
 @NgModule({
@@ -37,7 +40,9 @@ import { TempComponent } from './main/casas/casa-uno/temp/temp.component';
     OptionsMenuHouseComponent,
     HeaderComponent,
     TabsComponent,
-    SecurityComponent
+    IrrigationComponent,
+    AlarmComponent,
+
   ],
   imports: [
     CommonModule,
@@ -45,7 +50,13 @@ import { TempComponent } from './main/casas/casa-uno/temp/temp.component';
     PagesRoutingModule,
     HttpClientModule,
     SharedModule,
+
     FontAwesomeModule
+  ],
+  exports:[
+    OptionsMenuHouseComponent,
+    HeaderComponent,
+    TabsComponent
   ],
   providers: [
 

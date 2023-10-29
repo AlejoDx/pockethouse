@@ -1,0 +1,30 @@
+<div class="flex flex-col justify-between h-screen pb-[10px] ">
+  <div>
+    <!-- Flechita para volver al main  -->
+    <app-headerM></app-headerM>
+
+    <!-- tabs -->
+
+    <ul class="sm-tab flex justify-center  mt-[46px] ">
+
+      <li class="cursor-pointer"  >
+        <a [class]="activeTab === 'patio' ? 'bg-[#C0CFE6] text-black px-8 py-2 w-12 rounded-[25px]' : ' bg-[#D4E0EE] text-black px-8 py-2 rounded[25px]'"
+          (click)="setActiveTab('patio')">patio</a>
+      </li>
+    </ul>
+
+
+
+  </div>
+
+
+
+
+
+
+  <!-- Dentro de este div se ve la barra que esta en el bottom para entrar a las otras pantallas -->
+
+  <options-menu-house [activeOption]="'riego'"></options-menu-house>
+
+
+</div>
