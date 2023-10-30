@@ -1,0 +1,178 @@
+@media(max-width: 1200px){
+    .temperatura{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .grados{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 30px;
+    }
+    .aireAc{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 15px;
+    }
+    .calefa{
+        margin-left: 15px;
+        background-color: #F8F8F8;
+    }
+    .frio{
+        background-color: #F8F8F8;
+    }
+
+    .upDown{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+}
+@media(min-width: 350px) {
+    .temperatura{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .grados{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 30px;
+    }
+}
+
+@media(max-height: 645px) {
+    .temperatura{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    .grados{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 30px;
+    }
+}
+@media(min-height: 700px) {
+    .temperatura{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+    }
+    .grados{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 30px;
+    }
+}
+
+@media(min-height: 775px) {
+    .temperatura{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .grados{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 50px;
+    }
+}
+
+.temperatura{
+    border-radius: 25px;
+}
+
+.aire{
+    margin: 10px;
+}
+
+.lbl-switch{
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+    background: #aaa;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+#btn-switch:checked~ .lbl-switch{
+    background: #FFEB80;
+}
+
+.lbl-switch::after{
+    position: absolute;
+    content: '';
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 100px;
+    top: 4px;
+    left: 5px;
+    transition: 0.3s;
+}
+
+#btn-switch:checked~ .lbl-switch::after{
+    left: 28px;
+}
+
+#btn-switch{
+    display: none;
+}
+
+.caliente{
+    margin: 10px;
+}
+
+.lbl-hot{
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+    background: #aaa;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+#btn-hot:checked~ .lbl-hot{
+    background: #FFEB80;
+}
+
+.lbl-hot::after{
+    position: absolute;
+    content: '';
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 100px;
+    top: 4px;
+    left: 5px;
+    transition: 0.3s;
+}
+
+#btn-hot:checked~ .lbl-hot::after{
+    left: 28px;
+}
+
+#btn-hot{
+    display: none;
+}
+
+

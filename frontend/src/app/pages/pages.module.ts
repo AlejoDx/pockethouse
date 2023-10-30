@@ -14,10 +14,16 @@ import { ProfileComponent } from './main-admin/profile/profile.component';
 import { CasaUnoComponent } from './main/casas/casa-uno/casa-uno.component';
 import { CasaDosComponent } from './main/casas/casa-dos/casa-dos.component';
 import { FormsModule } from '@angular/forms';
-import { TempComponent } from './main/temp/temp.component';
+
 import { OptionsMenuHouseComponent } from './components/options-menu-house/options-menu-house.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TabsComponent } from './components/tabs/tabs.component';
+
+import { SecurityComponent } from './main/casas/casa-uno/security/security.component';
+import { TempComponent } from './main/casas/casa-uno/temp/temp.component';
+import { SecurityModule } from './main/casas/casa-uno/security/security.module';
+import { IrrigationComponent } from './main/casas/casa-uno/irrigation/irrigation.component';
+import { AlarmComponent } from './main/casas/casa-uno/alarm/alarm.component';
 
 
 @NgModule({
@@ -30,10 +36,13 @@ import { TabsComponent } from './components/tabs/tabs.component';
     ProfileComponent,
     CasaUnoComponent,
     CasaDosComponent,
-    TempComponent,
+ TempComponent,
     OptionsMenuHouseComponent,
     HeaderComponent,
-    TabsComponent
+    TabsComponent,
+    IrrigationComponent,
+    AlarmComponent,
+
   ],
   imports: [
     CommonModule,
@@ -41,7 +50,13 @@ import { TabsComponent } from './components/tabs/tabs.component';
     PagesRoutingModule,
     HttpClientModule,
     SharedModule,
+
     FontAwesomeModule
+  ],
+  exports:[
+    OptionsMenuHouseComponent,
+    HeaderComponent,
+    TabsComponent
   ],
   providers: [
 
