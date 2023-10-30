@@ -11,24 +11,31 @@ export class HomeAdminComponent implements OnInit{
 
   private houseService = inject(HouseService);
   private userService = inject(UserService);
-  casas: any[] = [];
+  clients: any[] = [];
+  houses: any[] = [];
   userDetails: any = "";
-  linkImagen: String="";
+  devices: Number=0;
+  houseDetails: any[] = [];
 
   ngOnInit(): void {
     this.houseService.list().subscribe((resp: any)=>{
-      console.log("Respuesta: " + resp[0].address)
-      this.casas = resp;
+      this.houses = resp;
+    })
+    this.userService.listAllClients().subscribe((resp: any)=>{
+      this.clients = resp;
     })
     this.userService.authUserDetails().subscribe((resp: any)=>{
-      console.log("Respuesta: " + resp)
       this.userDetails = resp;
-      this.linkImagen = "https://w7.pngwing.com/pngs/415/765/png-transparent-user-profile-linkedin-netwerk-money-order-fulfillment-round-face-saving-expert-moustache.png";
     })
   }
 
-  users : String[] = ["hola", "chau"];
-
+  public deviceCount(casa: any){
+    this.devices = 0;
+    casa.environments.forEach((env:any) => {
+        this.devices += env.devices.length;
+      });
+    return this.devices;
+  }
 
 
 }

@@ -26,4 +26,19 @@ export class UserService  {
       );
   }
 
+  public listAllClients() {
+
+    const url = `${this.base_url}/api/v1/client/list`;
+
+    return this.http.get<any>(url).pipe(
+      tap((resp: any) => {
+        console.log(resp);
+      }
+      ),
+      );
+  }
+
+    
 }
+
+
