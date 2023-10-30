@@ -3,8 +3,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        bottom: 100px;
-        position: relative;
+        margin-top: 15px;
     }
     .grados{
         display: flex;
@@ -12,6 +11,27 @@
         justify-content: center;
         position: relative;
         top: 30px;
+    }
+    .aireAc{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 15px;
+    }
+    .calefa{
+        margin-left: 15px;
+        background-color: #F8F8F8;
+    }
+    .frio{
+        background-color: #F8F8F8;
+    }
+
+    .upDown{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
     }
 }
 @media(min-width: 350px) {
@@ -34,8 +54,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        bottom: 70px;
-        position: relative;
+    
     }
     .grados{
         display: flex;
@@ -50,8 +69,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        bottom: 120px;
-        position: relative;
+       
     }
     .grados{
         display: flex;
@@ -67,8 +85,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        bottom: 160px;
-        position: relative;
     }
     .grados{
         display: flex;
@@ -82,4 +98,81 @@
 .temperatura{
     border-radius: 25px;
 }
+
+.aire{
+    margin: 10px;
+}
+
+.lbl-switch{
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+    background: #aaa;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+#btn-switch:checked~ .lbl-switch{
+    background: #FFEB80;
+}
+
+.lbl-switch::after{
+    position: absolute;
+    content: '';
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 100px;
+    top: 4px;
+    left: 5px;
+    transition: 0.3s;
+}
+
+#btn-switch:checked~ .lbl-switch::after{
+    left: 28px;
+}
+
+#btn-switch{
+    display: none;
+}
+
+.caliente{
+    margin: 10px;
+}
+
+.lbl-hot{
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+    background: #aaa;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+#btn-hot:checked~ .lbl-hot{
+    background: #FFEB80;
+}
+
+.lbl-hot::after{
+    position: absolute;
+    content: '';
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 100px;
+    top: 4px;
+    left: 5px;
+    transition: 0.3s;
+}
+
+#btn-hot:checked~ .lbl-hot::after{
+    left: 28px;
+}
+
+#btn-hot{
+    display: none;
+}
+
 
