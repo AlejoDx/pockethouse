@@ -16,13 +16,16 @@ export class HomeAdminComponent implements OnInit{
   userDetails: any = "";
   devices: Number=0;
   houseDetails: any[] = [];
+  loading: boolean = false;
 
   ngOnInit(): void {
+    this.loading = true;
     this.houseService.list().subscribe((resp: any)=>{
       this.houses = resp;
     })
     this.userService.listAllClients().subscribe((resp: any)=>{
       this.clients = resp;
+      this.loading = false;
     })
     this.userService.authUserDetails().subscribe((resp: any)=>{
       this.userDetails = resp;
