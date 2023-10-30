@@ -20,6 +20,7 @@ export class TempComponent implements OnInit{
       console.log("Respuesta: " + resp.msg)
       this.tempNow = resp.msg;
       this.loading = false;
+      this.changeStateSwitch();
     })
   }
 
@@ -28,6 +29,47 @@ export class TempComponent implements OnInit{
 
   setActiveTab(tab: string) {
     this.activeTab = tab;
+  }
+
+  // botones de aire y calefaccion
+  public SwitchOnOff: boolean = true;
+  public backgroundColor: string = '#F8F8F8'; // Color de fondo predeterminado
+
+  public turnedOff: boolean = false;
+  public tempP: boolean = false;
+
+
+  changeStateSwitch(){
+    this.loading = true;
+    this.mqttService.action("1", "STATE", "0").subscribe((resp: any)=>{
+      console.log("Respuesta: " + resp.msg)
+      if (resp.msg=="1")
+        this.turnedOff= false;
+        this.loading = false;
+        if (resp.msg=="0")
+        this.turnedOff = true;
+        this.loading = false;
+      })
+  }
+  toggleSwitch() {
+    this.loading = true;
+    if (this.turnedOff){
+      this.mqttService.action("1", "ACTION", "1").subscribe((resp: any)=>{
+        console.log("Respuesta: " + resp.msg)
+        this.turnedOff = false;
+        this.loading = false;
+      })
+    } else {
+      this.mqttService.action("1", "ACTION", "0").subscribe((resp: any)=>{
+        console.log("Respuesta: " + resp.msg)
+        this.turnedOff = true;
+        this.loading = false;
+      })
+    }
+  }
+
+  tempPage(){
+    this.tempP = true;
   }
 
 }
