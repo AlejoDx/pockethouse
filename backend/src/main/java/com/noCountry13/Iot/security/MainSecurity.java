@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -75,9 +76,9 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
 	CorsConfigurationSource corsConfigurationSource()
 	{
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOriginPatterns(List.of("http://localhost:3000", "http://localhost:4200"));
+		configuration.setAllowedOriginPatterns(List.of("https://z69wkzgd-4200.brs.devtunnels.ms/", "https://pockethouse.vercel.app/", "https://18lxskjb-4200.use2.devtunnels.ms/", "http://localhost:3000", "http://localhost:4200", "https://iot-jebius.koyeb.app:443"));
 		configuration.setAllowedMethods(List.of("GET", "POST", "OPTIONS", "DELETE", "PUT", "PATCH"));
-		configuration.setAllowedHeaders(List.of("Access-Control-Allow-Origin", "X-Requested-With", "Origin", "Content-Type", "Accept", "Authorization"));
+		configuration.setAllowedHeaders(List.of("Access-Control-Allow-Origin", "X-Requested-With", "Origin", "Content-Type", "Accept", "accept", "Authorization", "Vary", "Access-Control-Allow-Credentials", "Access-Control-Expose-Headers"));
 		configuration.setAllowCredentials(true);
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
@@ -99,4 +100,16 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
+
+
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/v2/api-docs",
+				"/configuration/ui",
+				"/swagger-resources/**",
+				"/configuration/security",
+				"/swagger-ui.html",
+				"/webjars/**");
+	}
+
 }
