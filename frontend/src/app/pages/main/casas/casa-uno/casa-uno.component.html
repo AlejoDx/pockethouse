@@ -4,11 +4,29 @@
 
     <!-- tabs -->
 
-   <app-tabs></app-tabs>
+    <!-- tabs -->
+    <div>
+      <ul class="flex justify-center  mt-[46px]">
+        <li class="cursor-pointer ">
+          <a [class]="activeTab === 'comedor' ? 'bg-[#C0CFE6] text-black px-4 py-2 rounded-l-[25px]' : 'bg-[#D4E0EE] text-black px-4 py-2 rounded-l-[25px]'"
+            (click)="setActiveTab('comedor')">Comedor</a>
+        </li>
+        <li class="cursor-pointer ">
+          <a [class]="activeTab === 'cochera' ? 'bg-[#C0CFE6] text-black px-6 py-2  ' : 'bg-[#D4E0EE] text-black px-6 py-2'"
+            (click)="setActiveTab('cochera')">Cochera</a>
+        </li>
+        <li class="cursor-pointer">
+          <a [class]="activeTab === 'patio' ? 'bg-[#C0CFE6] text-black px-4 py-2 rounded-r-[25px]' : 'bg-[#D4E0EE] text-black px-4 py-2 rounded-r-[25px]'"
+            (click)="setActiveTab('patio')">Patio</a>
+        </li>
+      </ul>
+    </div>
+
 
     <div class="flex flex-row  justify-center items-center mt-[57px] mx-[44px] mt-3  mb-4 gap-5 ">
       <!-- toggle-swich luz -->
-      <div class=" content-light flex flex-col justify-center items-center h-[230px] w-[93px] rounded-[25px] bg-[#F8F8F8] shadow shadow-md gap-2">
+      <div
+        class=" content-light flex flex-col justify-center items-center h-[230px] w-[93px] rounded-[25px] bg-[#F8F8F8] shadow shadow-md gap-2">
         <div class="flex flex-row justify-center items-center gap-1">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="29" viewBox="0 0 28 29" fill="none">
             <path
@@ -46,10 +64,16 @@
       </div>
       <!--  Intensidad -->
 
-      <div class="content-light flex  flex-col items-center justify-center bg-[#C7C6C666] w-[232px] h-[228px] rounded-[25px] gap-4 p-3">
+      <div
+        class="content-light flex  flex-col items-center justify-center bg-[#C7C6C666] w-[232px] h-[228px] rounded-[25px] gap-4 p-3">
         <div class="flex flex-row items-center gap-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ebcf94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai ai-Sun"><path d="M12 3V2m0 20v-1m9-9h1M2 12h1m15.5-6.5L20 4M4 20l1.5-1.5M4 4l1.5 1.5m13 13L20 20"/><circle cx="12" cy="12" r="4"/></svg>
-        <h2 class="font-[Intel] text-[20px] font-bold text-gray-500">Intensidad</h2></div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+            stroke="#ebcf94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai ai-Sun">
+            <path d="M12 3V2m0 20v-1m9-9h1M2 12h1m15.5-6.5L20 4M4 20l1.5-1.5M4 4l1.5 1.5m13 13L20 20" />
+            <circle cx="12" cy="12" r="4" />
+          </svg>
+          <h2 class="font-[Intel] text-[20px] font-bold text-gray-500">Intensidad</h2>
+        </div>
         <input class="rounded-lg overflow-hidden appearance-none bg-gray-300 h-[20px] w-[212px]" type="range" min="1"
           max="100" step="1" value="15" />
       </div>
@@ -57,6 +81,6 @@
   </div>
 
 
-    <options-menu-house [activeOption]="'luz'"></options-menu-house>
+  <options-menu-house [activeOption]="'luz'"></options-menu-house>
 
 </div>
