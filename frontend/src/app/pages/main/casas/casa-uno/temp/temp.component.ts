@@ -14,6 +14,8 @@ export class TempComponent implements OnInit{
   tempNow: string = "22 grados";
   loading: boolean = false;
   activeDevice: string = "";
+  tempDispCom:number = 19;
+  tempDispHab:number = 19;
   tempDisp:number = 19;
 
   ngOnInit() {
@@ -28,6 +30,14 @@ export class TempComponent implements OnInit{
   }
 
   setActiveTab(tab: string) {
+    if (this.activeTab=="comedor"){
+      this.tempDispCom = this.tempDisp;
+      this.tempDisp = this.tempDispHab;
+    }
+    if (this.activeTab=="habitacion"){
+      this.tempDispHab = this.tempDisp;
+      this.tempDisp = this.tempDispCom;
+    }
     this.activeTab = tab;
     this.ngOnInit();
   }
