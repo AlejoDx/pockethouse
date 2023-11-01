@@ -24,6 +24,7 @@ import { TempComponent } from './main/casas/casa-uno/temp/temp.component';
 import { SecurityModule } from './main/casas/casa-uno/security/security.module';
 import { IrrigationComponent } from './main/casas/casa-uno/irrigation/irrigation.component';
 import { AlarmComponent } from './main/casas/casa-uno/alarm/alarm.component';
+import { MetricaComponent } from './main/casas/casa-uno/metrica/metrica.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { AlarmComponent } from './main/casas/casa-uno/alarm/alarm.component';
     TabsComponent,
     IrrigationComponent,
     AlarmComponent,
+    MetricaComponent,
 
   ],
   imports: [
