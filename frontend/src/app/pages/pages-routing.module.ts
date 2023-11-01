@@ -17,6 +17,8 @@ import { IrrigationComponent } from './main/casas/casa-uno/irrigation/irrigation
 import { AlarmComponent } from './main/casas/casa-uno/alarm/alarm.component';
 import { RegisterCustomerComponent } from './main-admin/register-customer/register-customer.component';
 import { ProfileUserComponent } from './main/profile-user/profile-user.component';
+import { CustomersComponent } from './main-admin/customers/customers.component';
+import { DevicesComponent } from './main-admin/devices/devices.component';
 
 
 
@@ -65,7 +67,18 @@ const routes: Routes = [
         path:'profile',component:ProfileComponent
       },
       {
-        path:'customers',component:RegisterCustomerComponent
+        path:'customers',component:CustomersComponent
+      },
+      {
+        path:'registerCustomer',component:RegisterCustomerComponent
+      }
+      ,
+      {
+        path:'devices',component:DevicesComponent
+      }
+      ,
+      {
+        path:'installs',component:DevicesComponent
       }
     ]
   }

@@ -1,139 +1,174 @@
-<form class="formRegsiter h-full pl-[100px]">
+<div class=" h-screen pb-5">
+<form class="flex flex-row justify-between  h-screen pl-[100px]" [formGroup]="formRegister">
+  <div class="w-[80%]">
+    <div class="w-[80%] lg:w-[95%] h-[78px] bg-[#D9D9D9] rounded-[25px] ml-[30px]  mt-3 pt-5 mx-auto ">
+      <h2 class="text-center font-[Inter] text-[24px] font-bold">REGISTRO NUEVO CLIENTE</h2>
 
-  <div class="w-[80%] lg:w-[95%] h-[78px] bg-[#D9D9D9] rounded-[25px] ml-[30px]  mt-3 pt-5 mx-auto ">
-    <h2 class="text-center font-[Inter] text-[24px] font-bold">REGISTRO NUEVO CLIENTE</h2>
+    </div>
+    <div class="flex flex-col justify-center items-center mt-[44px]  gap-4 " *ngIf="stateForm=='0'">
+      <div class="field-name flex flex-col gap-[8px]">
+        <label for="name" class="font-[Poppins] font-medium">Nombre(s)</label>
+        <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+      </div>
+      <div class="field-lastName flex flex-col gap-[8px]">
+        <label for="name" class="font-[Poppins] font-medium">Apellido (s)</label>
+        <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+      </div>
+      <div class="field-date flex flex-col">
+        <label for="name" class="font-[Poppins] font-medium">Fecha de nacimiento</label>
+        <div class="flex flex-row w-[624px] gap-2">
+          <!--   select dia  de nacimiento-->
+          <select class="text-center w-full  h-[56px] rounded-[30px] border border-[#7C797A]">
+            <option [value]="day" *ngFor="let day of listDays">{{day}}</option>
+          </select>
+
+          <!-- select mes de nacimiento -->
+          <select type="se" class="text-center w-full h-[56px] rounded-[30px] border border-[#7C797A]">
+            <option value="month" *ngFor="let month of months">{{month}}</option>
+          </select>
+          <!-- select año  de nacimiento -->
+          <select type="se" class="text-center w-full  h-[56px] rounded-[30px] border border-[#7C797A]">
+            <option [value]="year" *ngFor="let year of years">{{year}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-id flex flex-col">
+        <label for="name" class="font-[Poppins] font-medium">Tipo de identificacion</label>
+        <div class="flex flex-row w-[624px] gap-2">
+          <!--   select Tipo de identificacion -->
+          <select class="text-center w-full  h-[56px] rounded-[30px] border border-[#7C797A]">
+            <option value="DNI">DNI</option>
+            <option value="Pasaporte">Pasaporte</option>
+            <option value="Cédula">Cédula</option>
+          </select>
+
+          <input type="text" class="text-center w-full h-[56px] rounded-[30px] border border-[#7C797A]"
+            placeholder="N-identificacion">
+
+
+        </div>
+      </div>
+
+
+      <div class="field-address flex flex-col gap-[8px]">
+        <label for="name" class="font-[Poppins] font-medium">Direccion completa de domicilio</label>
+        <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+      </div>
+      <button class="text-center w-[624px] h-[56px] rounded-[30px] bg-black text-white mt-3"
+        (click)="changeForm()">Continuar</button>
+
+    </div>
+    <!-- form 2 -->
+    <div class="flex flex-col justify-center items-center mt-[44px]  gap-4 " *ngIf="stateForm=='1'">
+      <!-- vivienda-->
+      <div class="field-house flex flex-col gap-[8px]">
+        <label for="name" class="font-[Poppins] font-medium">Vivienda</label>
+        <div class="flex flex-row w-[624px] gap-2">
+
+          <input type="text" formControlName="descripcionHouse"
+            class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]" placeholder="Descripcion">
+
+          <input type="text" formControlName="direccionHouse"
+            class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A] " placeholder="Direccion">
+          <input type="text" formControlName="topicHouse"
+            class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]" placeholder="Topico">
+
+
+          <button class=" w-[26%] h-[48px] rounded-[60px]  bg-black text-white" (click)="addHouse()">añadir</button>
+        </div>
+      </div>
+      <!-- lista Dispositivos -->
+      <div class="flex flex-col">
+        <div
+          class="flex flex-row justify-center items-center w-[605px] h-[56px] mb-2 rounded-[30px] border border-[#7C797A] bg-white"
+          *ngFor="let address of listAddress ">
+          <div class="w-[25%] text-center">{{address.descripcionHouse}}</div>
+          <div class="line w-[1px] h-[90%] bg-black"></div>
+          <div class="w-[25%] text-center">{{address.direccionHouse}}</div>
+          <div class="line w-[1px] h-[90%] bg-black"></div>
+          <div class="w-[25%] text-center">{{address.topicHouse}}</div>
+
+          <button class="h-full w-[25%]  bg-black text-white rounded-r-[30px]"
+            (click)="habilitarFormEnviroment()">añadir
+            ambiente</button>
+        </div>
+        <div *ngIf="stateEnviroment">
+        <div class="w-[605px] p-5 rounded-[30px] border border-[#7C797A] bg-white mb-3" *ngFor="let address of listAddress">
+
+          <h3 >Ambiente {{address.descripcionHouse}}
+          </h3>
+          <div class="field-house flex flex-col gap-[8px]">
+
+            <div class="flex flex-row w-full gap-2 mb-3">
+
+              <input type="text" formControlName="descripcionEnv"
+                class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]" placeholder="Descripcion">
+
+
+              <input type="text" formControlName="topicEnv"
+                class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]" placeholder="Topico">
+              <button class=" w-[26%] h-[48px] rounded-[60px]  bg-black text-white"
+                (click)="addEviroment()">añadir</button>
+            </div>
+          </div>
+          <div
+            class="flex flex-row justify-center items-center w-full h-[56px] mb-2 rounded-[30px] border border-[#7C797A] bg-white"
+            *ngFor="let env of listEnviroments ">
+            <div class="w-[40%] text-center">{{env.descripcionEnv}}</div>
+
+            <div class="line w-[1px] h-[90%] bg-black"></div>
+            <div class="w-[40%] text-center">{{env.topicEnv}}</div>
+
+            <button class="h-full w-[20%]  bg-black text-white rounded-r-[30px]" (click)="habilitarFormDevice()">añadir
+              Dispositivo</button>
+          </div>
+          <div *ngIf="stateDevice">
+          <div class="w-full p-5 rounded-[30px] border border-[#7C797A] bg-white mb-3" >
+            <h3 >Dispositivos
+            </h3>
+            <div class="field-house flex flex-col gap-[8px]">
+
+              <div class="flex flex-row w-full gap-2 mb-3">
+
+                <input type="text" formControlName="descripcionDevice"
+                  class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]" placeholder="Descripcion">
+
+
+                <input type="text" formControlName="topicDevice"
+                  class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]" placeholder="Topico">
+                  <select type="text" formControlName="typeDevice"
+                  class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]">
+                  <option value="sensor">sensor</option>
+                  <option value="switch">switch</option>
+                  <option value="calefaccion">calefaccion</option>
+                  <option value="calefaccion">riego</option>
+                  </select>
+                <button class=" w-[26%] h-[48px] rounded-[60px]  bg-black text-white"
+                  (click)="addDevice()">añadir</button>
+              </div>
+            </div>
+            <div
+              class="flex flex-row justify-center items-center w-full h-[56px] mb-2 rounded-[30px] border border-[#7C797A] bg-white"
+              *ngFor="let dev of listDevice ">
+              <div class="w-[33%] text-center">{{dev.descripcionDevice}}</div>
+
+              <div class="line w-[1px] h-[90%] bg-black"></div>
+              <div class="w-[33%] text-center">{{dev.topicDevice}}</div>
+              <div class="line w-[1px] h-[90%] bg-black"></div>
+              <div class="w-[33%] text-center">{{dev.typeDevice}}</div>
+
+            </div>
+
+        </div>
+      </div>
+        </div>
+      </div>
+      </div>
+      <!--  viviendas a  registrar -->
+    </div>
 
   </div>
-  <div class="flex flex-col justify-center items-center mt-[44px]  gap-4 " *ngIf="stateForm=='0'">
-    <div class="field-name flex flex-col gap-[8px]">
-      <label for="name" class="font-[Poppins] font-medium">Nombre(s)</label>
-      <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
-    </div>
-    <div class="field-lastName flex flex-col gap-[8px]">
-      <label for="name" class="font-[Poppins] font-medium">Apellido (s)</label>
-      <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
-    </div>
-    <div class="field-date flex flex-col">
-      <label for="name" class="font-[Poppins] font-medium">Fecha de nacimiento</label>
-      <div class="flex flex-row w-[624px] gap-2">
-        <!--   select dia  de nacimiento-->
-        <select class="text-center w-full  h-[56px] rounded-[30px] border border-[#7C797A]">
-          <option [value]="day" *ngFor="let day of listDays">{{day}}</option>
-        </select>
-
-        <!-- select mes de nacimiento -->
-        <select type="se" class="text-center w-full h-[56px] rounded-[30px] border border-[#7C797A]">
-          <option value="month" *ngFor="let month of months">{{month}}</option>
-        </select>
-        <!-- select año  de nacimiento -->
-        <select type="se" class="text-center w-full  h-[56px] rounded-[30px] border border-[#7C797A]">
-          <option [value]="year" *ngFor="let year of years">{{year}}</option>
-        </select>
-      </div>
-    </div>
-    <div class="field-id flex flex-col">
-      <label for="name" class="font-[Poppins] font-medium">Tipo de identificacion</label>
-      <div class="flex flex-row w-[624px] gap-2">
-        <!--   select Tipo de identificacion -->
-        <select class="text-center w-full  h-[56px] rounded-[30px] border border-[#7C797A]">
-          <option value="DNI">DNI</option>
-          <option value="Pasaporte">Pasaporte</option>
-          <option value="Cédula">Cédula</option>
-        </select>
-
-        <input type="text" class="text-center w-full h-[56px] rounded-[30px] border border-[#7C797A]"
-          placeholder="N-identificacion">
-
-
-      </div>
-    </div>
-
-
-    <div class="field-address flex flex-col gap-[8px]">
-      <label for="name" class="font-[Poppins] font-medium">Direccion completa de domicilio</label>
-      <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
-    </div>
-    <button class="text-center w-[624px] h-[56px] rounded-[30px] bg-black text-white mt-3"
-      (click)="changeForm()">Continuar</button>
-
-  </div>
-  <div class="flex flex-col justify-center items-center mt-[44px]  gap-4 " *ngIf="stateForm=='1'">
-    <!-- Dispositivo a Instalar -->
-    <div class="field-date flex flex-col gap-[8px]">
-      <label for="name" class="font-[Poppins] font-medium">Dispositivo a Instalar</label>
-      <div class="flex flex-row w-[624px] gap-2">
-        <!--   select dia  de nacimiento-->
-        <select class="text-center w-[37%]  h-[56px] rounded-[30px] border border-[#7C797A]">
-          <option value="">Tipologia</option>
-        </select>
-
-        <!-- select mes de nacimiento -->
-        <select type="se" class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]">
-          <option value="">Cantidad</option>
-        </select>
-        <!-- select año  de nacimiento -->
-        <button class=" w-[26%] h-[48px] rounded-[60px]  bg-black text-white">añadir</button>
-      </div>
-    </div>
-    <!-- lista Dispositivos -->
-    <div
-      class="flex flex-row justify-center items-center w-[439px] h-[56px] rounded-[30px] border border-[#7C797A] bg-white">
-      <div class="w-[50%] text-center">Cantidad</div>
-      <div class="line w-[1px] h-[90%] bg-black"></div>
-      <div class="w-[50%] text-center">Tipologia</div>
-    </div>
-    <!--  viviendas a  registrar -->
-    <div class="field-date flex flex-col gap-[8px] mt-4">
-      <label for="name" class="font-[Poppins] font-medium">¿Cuántas viviendas desea registrar?</label>
-      <div class="flex flex-row w-[624px] gap-2">
-
-
-        <select class="text-center w-[37%]  h-[56px] rounded-[30px] border border-[#7C797A]">
-          <option value="">Tipologia</option>
-        </select>
-
-
-        <select type="se" class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]">
-          <option value="">Cantidad</option>
-        </select>
-
-        <button class=" w-[26%] h-[48px] rounded-[60px]  bg-black text-white">añadir</button>
-      </div>
-    </div>
-    <div
-      class="flex flex-row justify-center items-center w-[605px] h-[56px] rounded-[30px] border border-[#7C797A] bg-white">
-      <div class="w-[33%] text-center">Cantidad</div>
-      <div class="line w-[1px] h-[90%] bg-black"></div>
-      <div class="w-[33%] text-center">Tipologia</div>
-      <div class="line w-[1px] h-[90%] bg-black"></div>
-      <div class="w-[33%] text-center">Direccion</div>
-    </div>
-    <div class="field-date flex flex-col gap-[8px] mt-4">
-      <label for="name" class="font-[Poppins] font-medium">Ambientes de la Casa</label>
-      <div class="flex flex-row w-[624px] gap-2">
-
-        <select class="text-center w-[37%]  h-[56px] rounded-[30px] border border-[#7C797A]">
-          <option value="" >Tipologia</option>
-        </select>
-        <select type="se" class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]">
-          <option value="" >Cantidad</option>
-        </select>
-
-        <button class=" w-[26%] h-[48px] rounded-[60px]  bg-black text-white">añadir</button>
-      </div>
-    </div>
-    <!-- lista Dispositivos -->
-    <div class="flex flex-row justify-center items-center w-[439px] h-[56px] rounded-[30px] border border-[#7C797A] bg-white">
-      <div class="w-[50%] text-center">Cantidad</div>
-      <div class="line w-[1px] h-[90%] bg-black"></div>
-      <div class="w-[50%] text-center">Tipologia</div>
-    </div>
-
-
-
-    <button type="submit" class="text-center w-[624px] h-[56px] rounded-[30px] bg-black text-white mt-3"
-      >Continuar</button>
-
-  </div>
-
+  <button  type="submit"
+  class="text-centee w-[20%] h-[56px] rounded-[30px] bg-black text-white my-auto  mb-[24px] mr-2"  *ngIf="stateForm=='1'">Continuar</button>
 </form>
+</div>
