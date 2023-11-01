@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { WeatherService } from 'src/app/pages/services/weather.service';
 
 @Component({
   selector: 'app-irrigation',
@@ -14,13 +15,16 @@ export class IrrigationComponent {
   public SwitchOnOff: boolean = true;
 ; // Color de fondo predeterminado
 
+  private weatherService = inject(WeatherService);
   public turnedOff: boolean = false;
   public turnedOff2: boolean = false
-
-
+  temp: String ="";
 
   ngOnInit() {
-
+    this.weatherService.realtime().subscribe((resp: any)=>{
+      console.log("Respuesta: " + resp.msg)
+      this.temp = resp.data[0].app_temp;
+    })
   }
 
 
