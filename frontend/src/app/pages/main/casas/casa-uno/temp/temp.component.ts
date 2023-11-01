@@ -14,6 +14,7 @@ export class TempComponent implements OnInit{
   tempNow: string = "22 grados";
   loading: boolean = false;
   activeDevice: string = "";
+  tempDisp:number = 19;
 
   ngOnInit() {
     this.loading = true;
@@ -29,6 +30,16 @@ export class TempComponent implements OnInit{
   setActiveTab(tab: string) {
     this.activeTab = tab;
     this.ngOnInit();
+  }
+
+  tempSum(){
+    console.log("Sumando")
+    this.tempDisp += 1;
+  }
+
+  tempRes(){
+    console.log("Sumando")
+    this.tempDisp -= 1;
   }
 
   // botones de aire y calefaccion
