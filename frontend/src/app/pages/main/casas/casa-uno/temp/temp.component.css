@@ -1,4 +1,4 @@
-@media(max-width: 1200px){
+
     .temperatura{
         display: flex;
         align-items: center;
@@ -21,11 +21,9 @@
     }
     .calefa{
         margin-left: 15px;
-        background-color: #F8F8F8;
+
     }
-    .frio{
-        background-color: #F8F8F8;
-    }
+
 
     .upDown{
         display: flex;
@@ -33,7 +31,7 @@
         align-items: center;
         margin-top: 15px;
     }
-}
+
 @media(min-width: 350px) {
     .temperatura{
         display: flex;
@@ -54,7 +52,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    
+
     }
     .grados{
         display: flex;
@@ -69,7 +67,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-       
+
     }
     .grados{
         display: flex;

@@ -13,22 +13,33 @@ export class TempComponent implements OnInit{
   activeTab: string = 'comedor';
   tempNow: string = "22 grados";
   loading: boolean = false;
+  activeDevice: string = "";
+  tempDisp:number = 19;
 
   ngOnInit() {
     this.loading = true;
-    this.mqttService.action("9", "LIVE", "1").subscribe((resp: any)=>{
+    if (this.activeTab=="comedor"){this.activeDevice="9"}
+    if (this.activeTab=="habitacion"){this.activeDevice="6"}
+    this.mqttService.action(this.activeDevice, "LIVE", "1").subscribe((resp: any)=>{
       console.log("Respuesta: " + resp.msg)
       this.tempNow = resp.msg;
       this.loading = false;
-      this.changeStateSwitch();
     })
   }
 
-
-
-
   setActiveTab(tab: string) {
     this.activeTab = tab;
+    this.ngOnInit();
+  }
+
+  tempSum(){
+    console.log("Sumando")
+    this.tempDisp += 1;
+  }
+
+  tempRes(){
+    console.log("Sumando")
+    this.tempDisp -= 1;
   }
 
   // botones de aire y calefaccion
@@ -37,39 +48,4 @@ export class TempComponent implements OnInit{
 
   public turnedOff: boolean = false;
   public tempP: boolean = false;
-
-
-  changeStateSwitch(){
-    this.loading = true;
-    this.mqttService.action("1", "STATE", "0").subscribe((resp: any)=>{
-      console.log("Respuesta: " + resp.msg)
-      if (resp.msg=="1")
-        this.turnedOff= false;
-        this.loading = false;
-        if (resp.msg=="0")
-        this.turnedOff = true;
-        this.loading = false;
-      })
-  }
-  toggleSwitch() {
-    this.loading = true;
-    if (this.turnedOff){
-      this.mqttService.action("1", "ACTION", "1").subscribe((resp: any)=>{
-        console.log("Respuesta: " + resp.msg)
-        this.turnedOff = false;
-        this.loading = false;
-      })
-    } else {
-      this.mqttService.action("1", "ACTION", "0").subscribe((resp: any)=>{
-        console.log("Respuesta: " + resp.msg)
-        this.turnedOff = true;
-        this.loading = false;
-      })
-    }
-  }
-
-  tempPage(){
-    this.tempP = true;
-  }
-
 }

@@ -1,4 +1,4 @@
-<div class="flex flex-col justify-between h-screen pb-[10px] ">
+<div class="flex flex-col justify-between h-screen  ">
   <div>
     <!-- Flechita para volver al main  -->
     <app-headerM></app-headerM>
@@ -7,17 +7,155 @@
 
     <ul class="sm-tab flex justify-center  mt-[46px] ">
 
-      <li class="cursor-pointer"  >
-        <a [class]="activeTab === 'patio' ? 'bg-[#C0CFE6] text-black px-8 py-2 w-12 rounded-[25px]' : ' bg-[#D4E0EE] text-black px-8 py-2 rounded[25px]'"
-          (click)="setActiveTab('patio')">patio</a>
+      <li class="cursor-pointer">
+        <a [class]="activeTab === 'patio' ? 'bg-[#C0CFE6] text-black px-10 py-2 w-12 rounded-[25px]' : ' bg-[#D4E0EE] text-black px-8 py-2 rounded[25px]'"
+          (click)="setActiveTab('patio')">Patio</a>
       </li>
     </ul>
 
 
+    <div class="flex flex-col justify-center items-center mt-[38px] ">
+      <h3 class="ml-[-250px] text-[#494949] font-[Gabarito] text-[20px] font-medium">Indice UV</h3>
+
+
+      <div class="flex flex-col w-[361px] ">
+        <div class="arrow ml-5 w-[26px]" [ngClass]="{
+          'arrow': true,
+          'translate-x-0': indiceUV === 'uv1',
+          'translate-x-[73px]': indiceUV === 'uv2',
+          'translate-x-[148px]': indiceUV === 'uv3',
+          'translate-x-[223px]': indiceUV === 'uv4',
+          'translate-x-[298px]': indiceUV === 'uv5',}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="#494949" stroke-width="2" class="ai ai-TriangleDownFill"><path d="M6 8a1 1 0 0 0-.8 1.6l6 8a1 1 0 0 0 1.6 0l6-8A1 1 0 0 0 18 8H6z"/></svg>
+      </div>
+      <div class="flex flex-row w-[361px] h-[11px] rounded-[8px]">
+        <div class="h-full w-[20%] bg-[#8DC443] rounded-l-[8px]"></div>
+        <div class="h-full w-[20%] bg-[#FEB300]"></div>
+        <div class="h-full w-[20%] bg-[#F6840A]"></div>
+        <div class="h-full w-[20%] bg-[#D1384A]"></div>
+        <div class="h-full w-[20%] bg-[#67334C] rounded-r-[8px]"></div>
+      </div>
+    </div>
+      <div class="flex flex-row w-[361px] h-auto rounded-[8px] justify-center items-center mb-5">
+        <div class="h-full w-[20%] text-center "><p class="text-[#494949] font-[Gabarito] text-[10px] font-normal">BAJO</p></div>
+        <div class="h-full w-[20%] text-center"><p class="text-[#494949] font-[Gabarito] text-[10px] font-normal">MEDIO</p></div>
+        <div class="h-full w-[20%] text-center"><p class="text-[#494949] font-[Gabarito] text-[10px] font-normal">ALTO</p></div>
+        <div class="h-full w-[20%] text-center"><p class="text-[#494949] font-[Gabarito] text-[10px] font-normal">MUY ALTO</p></div>
+        <div class="h-full w-[20%] text-center"><p class="text-[#494949] font-[Gabarito] text-[10px] font-normal">EXTREMO</p></div>
+      </div>
+      <div
+        class="flex flex-row w-[345px] h-[103px] bg-[#F8F8F8] shadow-[0_0_12px_0_rgba(0,0,0,0.25)] hover:shadow-lg shadow-[rgba(0, 0, 0, 0.25)] rounded-[25px]">
+        <div class="w-[70%] pt-[15px] pl-[19px]">
+          <div class="flex items-center">
+            <!-- <div class="w-[20px] h-[20px] rounded-full mr-2" [ngClass]="{
+          'arrow': true,
+          'bg-[#8DC443]': indiceUV === 'uv1',
+          'bg-[#FEB300]': indiceUV === 'uv2',
+          'bg-[#F6840A]': indiceUV === 'uv3',
+          'bg-[#D1384A]': indiceUV === 'uv4',
+          'bg-[#67334C]': indiceUV === 'uv5',}"></div> -->
+            <p class="text-[#494949] text-[28px] font-[Gabarito] font-medium">{{temp}}°C</p>
+          </div>
+          <p class="text-[#494949] text-[20px] font-[Gabarito] font-medium">{{clouds}}</p>
+        </div>
+        <div class="w-[30%] m-auto flex flex-row">
+          <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
+            <path d="M37 52.4166C45.5144 52.4166 52.4167 45.5143 52.4167 36.9999C52.4167 28.4855 45.5144 21.5833 37 21.5833C28.4857 21.5833 21.5834 28.4855 21.5834 36.9999C21.5834 45.5143 28.4857 52.4166 37 52.4166Z" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M37 3.08325V9.24992" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M37 64.75V70.9167" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.0117 13.0117L17.3901 17.3901" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M56.61 56.6101L60.9883 60.9884" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.08337 37H9.25004" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M64.75 37H70.9167" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.0117 60.9884L17.3901 56.6101" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M56.61 17.3901L60.9883 13.0117" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="flex flex-row mt-3 gap-3">
+
+        <div
+          class="content-light flex  flex-col items-center justify-center bg-white w-[162px] h-[128px] rounded-[25px] gap-4 p-3 shadow-lg blur-12 ">
+          <div class="flex gap-2">
+            <div class="div">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <g clip-path="url(#clip0_383_669)">
+                <path d="M8.66675 20.5833V22.7499" stroke="#494949" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M8.66675 14.0833V16.2499" stroke="#494949" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M17.3333 20.5833V22.7499" stroke="#494949" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M17.3333 14.0833V16.2499" stroke="#494949" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M13 22.75V24.9167" stroke="#494949" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M13 16.25V18.4167" stroke="#494949" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M21.6666 17.9618C22.8055 17.463 23.7381 16.5876 24.3079 15.4826C24.8777 14.3776 25.05 13.1102 24.7959 11.8931C24.5419 10.6761 23.8768 9.58349 22.9125 8.79875C21.9482 8.01401 20.7432 7.58489 19.5 7.58343H18.135C17.7916 6.25366 17.137 5.02454 16.2254 3.99738C15.3137 2.97022 14.171 2.17443 12.8914 1.6756C11.6118 1.17678 10.2319 0.989198 8.86561 1.12833C7.49928 1.26746 6.18558 1.72931 5.03279 2.47582C3.88 3.22233 2.92112 4.23212 2.2352 5.42196C1.54928 6.6118 1.15595 7.94762 1.08763 9.31931C1.01932 10.691 1.27797 12.0593 1.84228 13.3114C2.40658 14.5635 3.26038 15.6636 4.33329 16.5209"
+                  stroke="#494949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <defs>
+                <clipPath id="clip0_383_669">
+                  <rect width="26" height="26" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+            <h3 class="text-[#494949] text-[15px] font-[Gabarito] font-medium">Riego</h3>
+          </div>
+          <div class="w-[111px] h-[33px] bg-[#DEDDDD] rounded-[24px]">
+            <input [checked]="turnedOff" type="checkbox" [(ngModel)]="SwitchOnOff" (click)="toggleSwitch()"
+              class="opacity-0 absolute h-0 w-0" id="toggleSwitch">
+            <label for="toggleSwitch"
+              class="toggle-label w-full block h-full cursor-pointer rounded-full shadow-md pt-2"
+              [style.background]="turnedOff? '#FFEB80' : '#DEDDDD'">
+              <div [ngClass]="turnedOff? 'translate-x-[70px]' : 'translate-y-0'"
+                class=" ml-1 mt-[-8px] toggle-dot h-8 w-8 bg-white rounded-full shadow-md transform transition-transform duration-300">
+              </div>
+            </label>
+          </div>
+        </div>
+        <div  class="flex justify-center items-center content-light  bg-white w-[162px] h-[128px] rounded-[25px] gap-4 p-3 shadow-lg blur-12 ">
+          <div   >
+          <hr class="separator w-[65px] h-[1px] bg-[#97AF8F] my-2">
+          <div class="time font-[Gabarito] text-[25px] font-normal text-[#494949]">20<span class="time font-[Gabarito] text-[15px] font-normal text-[#494949]">min</span></div>
+          <hr class="separator  w-[65px] h-[1px] bg-[#97AF8F] my-2">
+        </div>
+        </div>
+
+      </div>
+
+      <h2 class=" font-[Gabarito] text-[20px] font-medium text-[#494949] mt-[45px]">Horario de riego</h2>
+      <div class="h-auto content-light w-[345px] bg-white rounded-[25px] gap-4 p-3 shadow-[0_0_12px_0_rgba(0,0,0,0.25)] mb-5">
+   <!--    horarios -->
+       <div class="flex flex-row justify-center items-center gap-14">
+        <h3 class=" font-[Gabarito] text-[40px] font-normal text-[#494949]">06:00</h3>
+        <div class="w-[111px] h-[33px] bg-[#DEDDDD] rounded-[24px]">
+          <input [checked]="turnedOff2" type="checkbox" [(ngModel)]="SwitchOnOff" (click)="toggleSwitch2()"
+            class="opacity-0 absolute h-0 w-0" id="toggleSwitch2">
+          <label for="toggleSwitch2"
+            class="toggle-label w-full block h-full cursor-pointer rounded-full shadow-md pt-2"
+            [style.background]="turnedOff2? '#FFEB80' : '#DEDDDD'">
+            <div [ngClass]="turnedOff2? 'translate-x-[70px]' : 'translate-y-0'"
+              class=" ml-1 mt-[-8px] toggle-dot h-8 w-8 bg-white rounded-full shadow-md transform transition-transform duration-300">
+            </div>
+          </label>
+        </div>
+      </div>
+
+
+      <div class="flex justify-center"><svg class=" cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+        <circle cx="28" cy="28" r="28" fill="#D4E0EE"/>
+        <path d="M28 13V43" stroke="#4A5C43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13 28H43" stroke="#4A5C43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg></div>
+
+    </div>
+    </div>
 
   </div>
-
-
 
 
 

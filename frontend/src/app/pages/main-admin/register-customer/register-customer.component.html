@@ -1,0 +1,139 @@
+<form class="formRegsiter h-full pl-[100px]">
+
+  <div class="w-[80%] lg:w-[95%] h-[78px] bg-[#D9D9D9] rounded-[25px] ml-[30px]  mt-3 pt-5 mx-auto ">
+    <h2 class="text-center font-[Inter] text-[24px] font-bold">REGISTRO NUEVO CLIENTE</h2>
+
+  </div>
+  <div class="flex flex-col justify-center items-center mt-[44px]  gap-4 " *ngIf="stateForm=='0'">
+    <div class="field-name flex flex-col gap-[8px]">
+      <label for="name" class="font-[Poppins] font-medium">Nombre(s)</label>
+      <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+    </div>
+    <div class="field-lastName flex flex-col gap-[8px]">
+      <label for="name" class="font-[Poppins] font-medium">Apellido (s)</label>
+      <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+    </div>
+    <div class="field-date flex flex-col">
+      <label for="name" class="font-[Poppins] font-medium">Fecha de nacimiento</label>
+      <div class="flex flex-row w-[624px] gap-2">
+        <!--   select dia  de nacimiento-->
+        <select class="text-center w-full  h-[56px] rounded-[30px] border border-[#7C797A]">
+          <option [value]="day" *ngFor="let day of listDays">{{day}}</option>
+        </select>
+
+        <!-- select mes de nacimiento -->
+        <select type="se" class="text-center w-full h-[56px] rounded-[30px] border border-[#7C797A]">
+          <option value="month" *ngFor="let month of months">{{month}}</option>
+        </select>
+        <!-- select año  de nacimiento -->
+        <select type="se" class="text-center w-full  h-[56px] rounded-[30px] border border-[#7C797A]">
+          <option [value]="year" *ngFor="let year of years">{{year}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="field-id flex flex-col">
+      <label for="name" class="font-[Poppins] font-medium">Tipo de identificacion</label>
+      <div class="flex flex-row w-[624px] gap-2">
+        <!--   select Tipo de identificacion -->
+        <select class="text-center w-full  h-[56px] rounded-[30px] border border-[#7C797A]">
+          <option value="DNI">DNI</option>
+          <option value="Pasaporte">Pasaporte</option>
+          <option value="Cédula">Cédula</option>
+        </select>
+
+        <input type="text" class="text-center w-full h-[56px] rounded-[30px] border border-[#7C797A]"
+          placeholder="N-identificacion">
+
+
+      </div>
+    </div>
+
+
+    <div class="field-address flex flex-col gap-[8px]">
+      <label for="name" class="font-[Poppins] font-medium">Direccion completa de domicilio</label>
+      <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+    </div>
+    <button class="text-center w-[624px] h-[56px] rounded-[30px] bg-black text-white mt-3"
+      (click)="changeForm()">Continuar</button>
+
+  </div>
+  <div class="flex flex-col justify-center items-center mt-[44px]  gap-4 " *ngIf="stateForm=='1'">
+    <!-- Dispositivo a Instalar -->
+    <div class="field-date flex flex-col gap-[8px]">
+      <label for="name" class="font-[Poppins] font-medium">Dispositivo a Instalar</label>
+      <div class="flex flex-row w-[624px] gap-2">
+        <!--   select dia  de nacimiento-->
+        <select class="text-center w-[37%]  h-[56px] rounded-[30px] border border-[#7C797A]">
+          <option value="">Tipologia</option>
+        </select>
+
+        <!-- select mes de nacimiento -->
+        <select type="se" class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]">
+          <option value="">Cantidad</option>
+        </select>
+        <!-- select año  de nacimiento -->
+        <button class=" w-[26%] h-[48px] rounded-[60px]  bg-black text-white">añadir</button>
+      </div>
+    </div>
+    <!-- lista Dispositivos -->
+    <div
+      class="flex flex-row justify-center items-center w-[439px] h-[56px] rounded-[30px] border border-[#7C797A] bg-white">
+      <div class="w-[50%] text-center">Cantidad</div>
+      <div class="line w-[1px] h-[90%] bg-black"></div>
+      <div class="w-[50%] text-center">Tipologia</div>
+    </div>
+    <!--  viviendas a  registrar -->
+    <div class="field-date flex flex-col gap-[8px] mt-4">
+      <label for="name" class="font-[Poppins] font-medium">¿Cuántas viviendas desea registrar?</label>
+      <div class="flex flex-row w-[624px] gap-2">
+
+
+        <select class="text-center w-[37%]  h-[56px] rounded-[30px] border border-[#7C797A]">
+          <option value="">Tipologia</option>
+        </select>
+
+
+        <select type="se" class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]">
+          <option value="">Cantidad</option>
+        </select>
+
+        <button class=" w-[26%] h-[48px] rounded-[60px]  bg-black text-white">añadir</button>
+      </div>
+    </div>
+    <div
+      class="flex flex-row justify-center items-center w-[605px] h-[56px] rounded-[30px] border border-[#7C797A] bg-white">
+      <div class="w-[33%] text-center">Cantidad</div>
+      <div class="line w-[1px] h-[90%] bg-black"></div>
+      <div class="w-[33%] text-center">Tipologia</div>
+      <div class="line w-[1px] h-[90%] bg-black"></div>
+      <div class="w-[33%] text-center">Direccion</div>
+    </div>
+    <div class="field-date flex flex-col gap-[8px] mt-4">
+      <label for="name" class="font-[Poppins] font-medium">Ambientes de la Casa</label>
+      <div class="flex flex-row w-[624px] gap-2">
+
+        <select class="text-center w-[37%]  h-[56px] rounded-[30px] border border-[#7C797A]">
+          <option value="" >Tipologia</option>
+        </select>
+        <select type="se" class="text-center w-[37%] h-[56px] rounded-[30px] border border-[#7C797A]">
+          <option value="" >Cantidad</option>
+        </select>
+
+        <button class=" w-[26%] h-[48px] rounded-[60px]  bg-black text-white">añadir</button>
+      </div>
+    </div>
+    <!-- lista Dispositivos -->
+    <div class="flex flex-row justify-center items-center w-[439px] h-[56px] rounded-[30px] border border-[#7C797A] bg-white">
+      <div class="w-[50%] text-center">Cantidad</div>
+      <div class="line w-[1px] h-[90%] bg-black"></div>
+      <div class="w-[50%] text-center">Tipologia</div>
+    </div>
+
+
+
+    <button type="submit" class="text-center w-[624px] h-[56px] rounded-[30px] bg-black text-white mt-3"
+      >Continuar</button>
+
+  </div>
+
+</form>

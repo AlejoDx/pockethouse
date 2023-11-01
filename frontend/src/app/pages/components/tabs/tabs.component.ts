@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Injectable, Component } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',

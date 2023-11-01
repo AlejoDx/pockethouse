@@ -15,6 +15,9 @@ import { SecurityComponent } from './main/casas/casa-uno/security/security.compo
 import { TempComponent } from './main/casas/casa-uno/temp/temp.component';
 import { IrrigationComponent } from './main/casas/casa-uno/irrigation/irrigation.component';
 import { AlarmComponent } from './main/casas/casa-uno/alarm/alarm.component';
+import { RegisterCustomerComponent } from './main-admin/register-customer/register-customer.component';
+import { ProfileUserComponent } from './main/profile-user/profile-user.component';
+import { MetricaComponent } from './main/casas/casa-uno/metrica/metrica.component';
 
 
 
@@ -25,6 +28,9 @@ const routes: Routes = [
     canActivate:[USerRoleGuard],
     children:[
       {path:'home',component:HomeComponent},
+      {
+        path:'profile',component:ProfileUserComponent
+      },
       {path:'casa1',component:CasaUnoComponent},
       {
         path: 'temperatura',
@@ -44,6 +50,11 @@ const routes: Routes = [
         path:'alarma',
         component:AlarmComponent
       }
+      ,{
+        path: 'metrica',
+        component: MetricaComponent
+      }
+
     ]
   },
 
@@ -56,6 +67,9 @@ const routes: Routes = [
       },
       {
         path:'profile',component:ProfileComponent
+      },
+      {
+        path:'customers',component:RegisterCustomerComponent
       }
     ]
   }

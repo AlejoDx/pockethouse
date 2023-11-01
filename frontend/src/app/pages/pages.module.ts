@@ -25,6 +25,9 @@ import { SecurityModule } from './main/casas/casa-uno/security/security.module';
 import { IrrigationComponent } from './main/casas/casa-uno/irrigation/irrigation.component';
 import { AlarmComponent } from './main/casas/casa-uno/alarm/alarm.component';
 import { MetricaComponent } from './main/casas/casa-uno/metrica/metrica.component';
+import { RegisterCustomerComponent } from './main-admin/register-customer/register-customer.component';
+import { ProfileUserComponent } from './main/profile-user/profile-user.component';
+import { OptionsHomeComponent } from './components/options-home/options-home.component';
 
 
 @NgModule({
@@ -44,6 +47,9 @@ import { MetricaComponent } from './main/casas/casa-uno/metrica/metrica.componen
     IrrigationComponent,
     AlarmComponent,
     MetricaComponent,
+    RegisterCustomerComponent,
+    ProfileUserComponent,
+    OptionsHomeComponent,
 
   ],
   imports: [

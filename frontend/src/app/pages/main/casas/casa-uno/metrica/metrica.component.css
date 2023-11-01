@@ -1,0 +1,20 @@
+
+.grafico{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 50px;
+}
+
+body{
+    background-color: #fff;
+}
+
+.datos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+}
