@@ -47,16 +47,16 @@
         class="flex flex-row w-[345px] h-[103px] bg-[#F8F8F8] shadow-[0_0_12px_0_rgba(0,0,0,0.25)] hover:shadow-lg shadow-[rgba(0, 0, 0, 0.25)] rounded-[25px]">
         <div class="w-[70%] pt-[15px] pl-[19px]">
           <div class="flex items-center">
-            <div class="w-[20px] h-[20px] rounded-full mr-2" [ngClass]="{
+            <!-- <div class="w-[20px] h-[20px] rounded-full mr-2" [ngClass]="{
           'arrow': true,
           'bg-[#8DC443]': indiceUV === 'uv1',
           'bg-[#FEB300]': indiceUV === 'uv2',
           'bg-[#F6840A]': indiceUV === 'uv3',
           'bg-[#D1384A]': indiceUV === 'uv4',
-          'bg-[#67334C]': indiceUV === 'uv5',}"></div>
-            <p class="text-[#494949] text-[28px] font-[Gabarito] font-medium">22 C°</p>
+          'bg-[#67334C]': indiceUV === 'uv5',}"></div> -->
+            <p class="text-[#494949] text-[28px] font-[Gabarito] font-medium">{{temp}}°C</p>
           </div>
-          <p class="text-[#494949] text-[20px] font-[Gabarito] font-medium">Parcialmente nublado</p>
+          <p class="text-[#494949] text-[20px] font-[Gabarito] font-medium">{{clouds}}</p>
         </div>
         <div class="w-[30%] m-auto flex flex-row">
           <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
