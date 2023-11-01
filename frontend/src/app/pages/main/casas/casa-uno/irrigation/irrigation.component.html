@@ -12,40 +12,64 @@
           (click)="setActiveTab('patio')">Patio</a>
       </li>
     </ul>
-    <div class="flex flex-col justify-center items-center mt-[38px]">
+
+
+    <div class="flex flex-col justify-center items-center mt-[38px] ">
+      <h3 class="ml-[-250px] text-[#494949] font-[Gabarito] text-[20px] font-medium">Indice UV</h3>
+
+
+      <div class="flex flex-col w-[361px] ">
+        <div class="arrow ml-5 w-[26px]" [ngClass]="{
+          'arrow': true,
+          'translate-x-0': indiceUV === 'uv1',
+          'translate-x-[73px]': indiceUV === 'uv2',
+          'translate-x-[148px]': indiceUV === 'uv3',
+          'translate-x-[223px]': indiceUV === 'uv4',
+          'translate-x-[298px]': indiceUV === 'uv5',}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="#494949" stroke-width="2" class="ai ai-TriangleDownFill"><path d="M6 8a1 1 0 0 0-.8 1.6l6 8a1 1 0 0 0 1.6 0l6-8A1 1 0 0 0 18 8H6z"/></svg>
+      </div>
+      <div class="flex flex-row w-[361px] h-[11px] rounded-[8px]">
+        <div class="h-full w-[20%] bg-[#8DC443] rounded-l-[8px]"></div>
+        <div class="h-full w-[20%] bg-[#FEB300]"></div>
+        <div class="h-full w-[20%] bg-[#F6840A]"></div>
+        <div class="h-full w-[20%] bg-[#D1384A]"></div>
+        <div class="h-full w-[20%] bg-[#67334C] rounded-r-[8px]"></div>
+      </div>
+    </div>
+      <div class="flex flex-row w-[361px] h-auto rounded-[8px] justify-center items-center mb-5">
+        <div class="h-full w-[20%] text-center "><p class="text-[#494949] font-[Gabarito] text-[10px] font-normal">BAJO</p></div>
+        <div class="h-full w-[20%] text-center"><p class="text-[#494949] font-[Gabarito] text-[10px] font-normal">MEDIO</p></div>
+        <div class="h-full w-[20%] text-center"><p class="text-[#494949] font-[Gabarito] text-[10px] font-normal">ALTO</p></div>
+        <div class="h-full w-[20%] text-center"><p class="text-[#494949] font-[Gabarito] text-[10px] font-normal">MUY ALTO</p></div>
+        <div class="h-full w-[20%] text-center"><p class="text-[#494949] font-[Gabarito] text-[10px] font-normal">EXTREMO</p></div>
+      </div>
       <div
         class="flex flex-row w-[345px] h-[103px] bg-[#F8F8F8] shadow-[0_0_12px_0_rgba(0,0,0,0.25)] hover:shadow-lg shadow-[rgba(0, 0, 0, 0.25)] rounded-[25px]">
         <div class="w-[70%] pt-[15px] pl-[19px]">
           <div class="flex items-center">
-            <div class="w-[10px] h-[10px] rounded-full mr-2" [ngClass]="{
+            <div class="w-[20px] h-[20px] rounded-full mr-2" [ngClass]="{
           'arrow': true,
           'bg-[#8DC443]': indiceUV === 'uv1',
           'bg-[#FEB300]': indiceUV === 'uv2',
-          'bg-[#D1384A]': indiceUV === 'uv3',
-          'bg-[#954F71]': indiceUV === 'uv4',}"></div>
+          'bg-[#F6840A]': indiceUV === 'uv3',
+          'bg-[#D1384A]': indiceUV === 'uv4',
+          'bg-[#67334C]': indiceUV === 'uv5',}"></div>
             <p class="text-[#494949] text-[28px] font-[Gabarito] font-medium">22 C°</p>
           </div>
           <p class="text-[#494949] text-[20px] font-[Gabarito] font-medium">Parcialmente nublado</p>
         </div>
         <div class="w-[30%] m-auto flex flex-row">
-          <div
-            class="flex flex-col w-[73px] h-[76px] rounded-[10px] border-[1px] border-[#A8B3C0] items-center justify-around ">
-            <div class="w-[61px] h-[13px] bg-[#8DC443] rounded-[10px]"></div>
-            <div class="w-[61px] h-[13px] bg-[#FEB300] rounded-[10px]"></div>
-            <div class="w-[61px] h-[13px] bg-[#D1384A] rounded-[10px]"></div>
-            <div class="w-[61px] h-[13px] bg-[#954F71] rounded-[10px]"></div>
-          </div>
-          <div class="arrow ml-1 mt-1 h-[14px] " [ngClass]="{
-          'arrow': true,
-          'translate-y-0.1': indiceUV === 'uv1',
-          'translate-y-5': indiceUV === 'uv2',
-          'translate-y-10': indiceUV === 'uv3',
-          'translate-y-14': indiceUV === 'uv4',}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none">
-              <path d="M-3.0598e-07 7L10.5 0.937823L10.5 13.0622L-3.0598e-07 7Z" fill="#A8B3C0"
-                fill-opacity="0.580392" />
-            </svg>
-          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
+            <path d="M37 52.4166C45.5144 52.4166 52.4167 45.5143 52.4167 36.9999C52.4167 28.4855 45.5144 21.5833 37 21.5833C28.4857 21.5833 21.5834 28.4855 21.5834 36.9999C21.5834 45.5143 28.4857 52.4166 37 52.4166Z" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M37 3.08325V9.24992" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M37 64.75V70.9167" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.0117 13.0117L17.3901 17.3901" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M56.61 56.6101L60.9883 60.9884" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.08337 37H9.25004" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M64.75 37H70.9167" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.0117 60.9884L17.3901 56.6101" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M56.61 17.3901L60.9883 13.0117" stroke="#D4E0EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
       </div>
       <div class="flex flex-row mt-3 gap-3">
@@ -53,6 +77,7 @@
         <div
           class="content-light flex  flex-col items-center justify-center bg-white w-[162px] h-[128px] rounded-[25px] gap-4 p-3 shadow-lg blur-12 ">
           <div class="flex gap-2">
+            <div class="div">
             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
               <g clip-path="url(#clip0_383_669)">
                 <path d="M8.66675 20.5833V22.7499" stroke="#494949" stroke-width="2" stroke-linecap="round"
@@ -77,6 +102,7 @@
                 </clipPath>
               </defs>
             </svg>
+          </div>
             <h3 class="text-[#494949] text-[15px] font-[Gabarito] font-medium">Riego</h3>
           </div>
           <div class="w-[111px] h-[33px] bg-[#DEDDDD] rounded-[24px]">

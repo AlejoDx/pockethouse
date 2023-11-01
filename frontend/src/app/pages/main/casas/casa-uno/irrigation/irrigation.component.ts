@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./irrigation.component.css']
 })
 export class IrrigationComponent {
-  public indiceUV:string="uv4";
+  public indiceUV:string="uv3";
   activeTab: string = 'patio';
   setActiveTab(tab: string) {
     this.activeTab = tab;
