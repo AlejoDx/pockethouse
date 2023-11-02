@@ -7,12 +7,12 @@
     </div>
     <div class="flex flex-col justify-center items-center mt-[44px]  gap-4 " *ngIf="stateForm=='0'">
       <div class="field-name flex flex-col gap-[8px]">
-        <label for="name" class="font-[Poppins] font-medium">Nombre(s)</label>
-        <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+        <label for="name" class="font-[Poppins] font-medium">Nombre(s) y Apellido(s)</label>
+        <input formControlName="formClientName" type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
       </div>
       <div class="field-lastName flex flex-col gap-[8px]">
-        <label for="name" class="font-[Poppins] font-medium">Apellido (s)</label>
-        <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+        <label for="name" class="font-[Poppins] font-medium">E-mail</label>
+        <input formControlName="formClientEmail" type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
       </div>
       <div class="field-date flex flex-col">
         <label for="name" class="font-[Poppins] font-medium">Fecha de nacimiento</label>
@@ -51,8 +51,20 @@
 
 
       <div class="field-address flex flex-col gap-[8px]">
-        <label for="name" class="font-[Poppins] font-medium">Direccion completa de domicilio</label>
+        <label for="name" class="font-[Poppins] font-medium">Direccion</label>
         <input type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+      </div>
+      <div class="field-lastName flex flex-col gap-[8px]">
+        <label for="name" class="font-[Poppins] font-medium">Usuario</label>
+        <input formControlName="formClientUser" type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+      </div>
+      <div class="field-lastName flex flex-col gap-[8px]">
+        <label for="name" class="font-[Poppins] font-medium">Password</label>
+        <input formControlName="formClientPassword" type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
+      </div>
+      <div class="field-lastName flex flex-col gap-[8px]">
+        <label for="name" class="font-[Poppins] font-medium">Topic</label>
+        <input formControlName="formClientTopic" type="text" class="text-center w-[624px] h-[56px] rounded-[30px] border border-[#7C797A]">
       </div>
       <button class="text-center w-[624px] h-[56px] rounded-[30px] bg-black text-white mt-3"
         (click)="changeForm()">Continuar</button>
@@ -168,7 +180,7 @@
     </div>
 
   </div>
-  <button  type="submit"
+  <button (click)="saveData()"
   class="text-centee w-[20%] h-[56px] rounded-[30px] bg-black text-white my-auto  mb-[24px] mr-2"  *ngIf="stateForm=='1'">Continuar</button>
 </form>
 </div>
