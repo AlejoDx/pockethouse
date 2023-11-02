@@ -40,7 +40,14 @@ export class UserService  {
       );
   }
 
+  public addUser(body: any) {
 
+    return this.http.post<any>(`${this.base_url}/auth/add`, body).pipe(
+      tap((resp: any) => {
+        console.log(resp);
+      }
+      ));
+  }
 }
 
 
