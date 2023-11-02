@@ -56,6 +56,7 @@ export class RegisterCustomerComponent implements OnInit {
     "subTopic": "string"
   }
 
+  loading: boolean = false;
   createdUser: any = {};
   public createdEnvironment: any[] = [];
   public createdDevices: any[] = [];
@@ -70,11 +71,12 @@ export class RegisterCustomerComponent implements OnInit {
   ngOnInit(): void {
     this.formRegister = this.fb.group(
       {
-        formClientName:['', [Validators.required]],
-        formClientEmail:['', [Validators.required]],
-        formClientUser:['', [Validators.required]],
-        formClientPassword:['', [Validators.required]],
-        formClientTopic:['', [Validators.required]],
+        formClientName:['Juan Carlos Mesa', [Validators.required]],
+        formClientEmail:['jcm@gmail.com', [Validators.required]],
+        formClientUser:['jcmesa', [Validators.required]],
+        formClientAddr:['Av. Independencia 1234', [Validators.required]],
+        formClientPassword:['jc123456', [Validators.required]],
+        formClientTopic:['jcm', [Validators.required]],
         descripcionHouse: ['', [Validators.required]],
         direccionHouse: ['', [Validators.required]],
         topicHouse: ['', [Validators.required]],
@@ -123,6 +125,7 @@ export class RegisterCustomerComponent implements OnInit {
     }
   }
   changeForm() {
+    this.loading = true;
     this.client.name = this.formRegister.controls["formClientName"].value;
     this.client.nameUser = this.formRegister.controls["formClientUser"].value;
     this.client.email = this.formRegister.controls["formClientEmail"].value;
@@ -130,6 +133,7 @@ export class RegisterCustomerComponent implements OnInit {
     this.client.topic = this.formRegister.controls["formClientTopic"].value;
     // this.userService.addUser(this.client).subscribe((resp: any)=>{
     //   console.log("Respuesta: " + resp.msg)
+    //   this.loading = false;
     //   this.stateForm = "1";
     // })
     this.stateForm = "1";
@@ -137,23 +141,23 @@ export class RegisterCustomerComponent implements OnInit {
   }
 
   saveData(){
-    this.listDevice.forEach((device)=>{
-      this.newDevice.description = device.descripcionDevice;
-      this.newDevice.subtopic = device.topicDevice;
-      this.createdDevices.push(this.newDevice);
-      //   this.deviceService.addDevice(this.newDevice).subscribe((resp: any)=>{
-    //   this.createdDevices.push(resp);
+    // this.listDevice.forEach((device)=>{
+    //   this.newDevice.description = device.descripcionDevice;
+    //   this.newDevice.subtopic = device.topicDevice;
+    //   this.createdDevices.push(this.newDevice);
+    //   //   this.deviceService.addDevice(this.newDevice).subscribe((resp: any)=>{
+    // //   this.createdDevices.push(resp);
+    // // })
     // })
-    })
-    this.listEnviroments.forEach((env)=>{
-      this.newEnvironment.description = env.descripcionEnv;
-      this.newEnvironment.topic = env.topicEnv;
-      this.newEnvironment.devices = this.createdDevices;
-      this.envDervice.addEnv(this.newEnvironment).subscribe((resp:any)=>{
-        this.createdEnvironment.push(resp);
-        console.log(this.createdEnvironment);
-    })
-    })
+    // this.listEnviroments.forEach((env)=>{
+    //   this.newEnvironment.description = env.descripcionEnv;
+    //   this.newEnvironment.topic = env.topicEnv;
+    //   this.newEnvironment.devices = this.createdDevices;
+    //   this.envDervice.addEnv(this.newEnvironment).subscribe((resp:any)=>{
+    //     this.createdEnvironment.push(resp);
+    //     console.log(this.createdEnvironment);
+    // })
+    // })
 
   }
 }
