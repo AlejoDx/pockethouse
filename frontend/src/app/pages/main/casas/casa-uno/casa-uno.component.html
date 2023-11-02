@@ -1,0 +1,86 @@
+<div class="flex flex-col justify-between h-screen ">
+  <div>
+    <app-headerM></app-headerM>
+
+    <!-- tabs -->
+
+    <!-- tabs -->
+    <div>
+      <ul class="flex justify-center  mt-[46px]">
+        <li class="cursor-pointer ">
+          <a [class]="activeTab === 'comedor' ? 'bg-[#C0CFE6] text-black px-4 py-2 rounded-l-[25px]' : 'bg-[#D4E0EE] text-black px-4 py-2 rounded-l-[25px]'"
+            (click)="setActiveTab('comedor')">Comedor</a>
+        </li>
+        <li class="cursor-pointer ">
+          <a [class]="activeTab === 'cochera' ? 'bg-[#C0CFE6] text-black px-6 py-2  ' : 'bg-[#D4E0EE] text-black px-6 py-2'"
+            (click)="setActiveTab('cochera')">Cochera</a>
+        </li>
+        <li class="cursor-pointer">
+          <a [class]="activeTab === 'patio' ? 'bg-[#C0CFE6] text-black px-4 py-2 rounded-r-[25px]' : 'bg-[#D4E0EE] text-black px-4 py-2 rounded-r-[25px]'"
+            (click)="setActiveTab('patio')">Patio</a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="flex flex-row  justify-center items-center mt-[57px] mx-[44px] mt-3  mb-4 gap-5 ">
+      <!-- toggle-swich luz -->
+      <div
+        class=" content-light flex flex-col justify-center items-center h-[230px] w-[93px] rounded-[25px] bg-[#F8F8F8] shadow shadow-md gap-2">
+        <div class="flex flex-row justify-center items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="29" viewBox="0 0 28 29" fill="none">
+            <path
+              d="M11.6666 25.6779H16.3333M5.83325 10.5113C5.83325 8.34534 6.69367 6.26811 8.22521 4.73657C9.75676 3.20502 11.834 2.3446 13.9999 2.3446C16.1659 2.3446 18.2431 3.20502 19.7746 4.73657C21.3062 6.26811 22.1666 8.34534 22.1666 10.5113C22.1674 11.8262 21.8493 13.1217 21.2398 14.2868C20.6302 15.4519 19.7473 16.4518 18.6666 17.2009L18.0343 20.1946C17.9505 20.7464 17.6718 21.2499 17.2486 21.6138C16.8255 21.9777 16.2859 22.1778 15.7278 22.1779H12.2721C11.714 22.1778 11.1744 21.9777 10.7512 21.6138C10.328 21.2499 10.0493 20.7464 9.96559 20.1946L9.33325 17.2138C8.25223 16.462 7.36925 15.4597 6.75976 14.2925C6.15027 13.1254 5.83238 11.828 5.83325 10.5113Z"
+              stroke="#494949" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9.33325 17.5113H18.6666" stroke="#494949" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <p class="font-[Gabarito] text-[15px] font-semibold text-black leading-none"> Luz </p>
+        </div>
+        <div class="relative inline-block w-[45px] h-[152.014px] rounded-full">
+
+          <svg *ngIf="loading" aria-hidden="true" role="status"
+            class="inline w-[43px] h-[43px] mr-3 text-black-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101"
+            fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+              fill="currentColor" />
+            <path
+              d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+              fill="#1C64F2" />
+          </svg>
+
+
+          <input *ngIf="!loading" [checked]="turnedOff" type="checkbox" [(ngModel)]="SwitchOnOff"
+            (click)="toggleSwitch()" class="opacity-0 absolute h-0 w-0" id="toggleSwitch">
+          <label *ngIf="!loading" for="toggleSwitch"
+            class="toggle-label h-full block w-12 cursor-pointer rounded-full shadow-md pt-2"
+            [style.background]="turnedOff? '#DEDDDD' : '#FFEB80'">
+            <div [ngClass]="turnedOff? 'translate-y-24' : 'translate-y-0'"
+              class="ml-2 toggle-dot h-8 w-8 bg-white rounded-full shadow-md transform transition-transform duration-300">
+            </div>
+          </label>
+        </div>
+      </div>
+      <!--  Intensidad -->
+
+      <div
+        class="content-light flex  flex-col items-center justify-center bg-[#C7C6C666] w-[232px] h-[228px] rounded-[25px] gap-4 p-3">
+        <div class="flex flex-row items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+            stroke="#ebcf94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai ai-Sun">
+            <path d="M12 3V2m0 20v-1m9-9h1M2 12h1m15.5-6.5L20 4M4 20l1.5-1.5M4 4l1.5 1.5m13 13L20 20" />
+            <circle cx="12" cy="12" r="4" />
+          </svg>
+          <h2 class="font-[Intel] text-[20px] font-bold text-gray-500">Intensidad</h2>
+        </div>
+        <input class="rounded-lg overflow-hidden appearance-none bg-gray-300 h-[20px] w-[212px]" type="range" min="1"
+          max="100" step="1" value="15" />
+      </div>
+    </div>
+  </div>
+
+
+  <options-menu-house [activeOption]="'luz'"></options-menu-house>
+
+</div>

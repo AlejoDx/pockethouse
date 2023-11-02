@@ -1,0 +1,13 @@
+@media screen and (max-height:680px) {
+  /* Tus estilos CSS para alturas menores que 574px van aquí */
+  /* Por ejemplo, puedes cambiar el color de fondo del cuerpo (body) */
+  .sm-tab{
+    margin-top: 26px;
+  }
+  .cam{
+    margin-top: 36px;
+  }
+
+}
+
+
