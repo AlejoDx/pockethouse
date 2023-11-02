@@ -1,0 +1,12 @@
+@media screen and (max-width:380px) {
+  /* Tus estilos CSS para alturas menores que 574px van aquí */
+  /* Por ejemplo, puedes cambiar el color de fondo del cuerpo (body) */
+  .sm-option{
+    padding: 0;
+    margin-bottom: 0px;
+  }
+  .sm-rounded{
+    border-radius: 0;
+  }
+
+}
