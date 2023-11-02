@@ -30,11 +30,11 @@ https://pockethouse.vercel.app/auth/homePage
   <br>
  <h3>PARA REALIZACIÓN DE FRONTEND:</h3>
  <h4>:heavy_check_mark: Angular</h4>
- <h4>:heavy_check_mark: Bootstrap</h4>
+ <h4>:heavy_check_mark: Tailwind</h4>
 
 <br>
 <h3>PARA REALIZACIÓN DE BACKEND:</h3>
- <h4>:heavy_check_mark: Springboot</h4>
+ <h4>:heavy_check_mark: Java/Springboot</h4>
  <h4>:heavy_check_mark: Implementaciones con el protocolo MQTT</h4>
  
  <br>
